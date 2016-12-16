@@ -1,6 +1,7 @@
 # What is Flynt?
 
-TODO: Short intro that explains the Flynt concept.
+Flynt is a component based WordPress framework for development teams and their clients.
+
 
 ## Quick Start
 

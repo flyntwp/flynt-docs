@@ -1,5 +1,9 @@
 # Dynamic Subcomponents
 
+- TODO: Read over and refactor / add to this file as appropriate.
+- TODO: Test all of the code examples in this file.
+- TODO: Test priority of filters < 999.
+
 ## Example Usage of the dynamicSubcomponents filter
 
 ```php
