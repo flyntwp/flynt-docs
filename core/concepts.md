@@ -1,7 +1,3 @@
-# Flynt Core
-
-The Flynt Core plugin is the basic building block of the Flynt Framework. Flynt Core offers a small public interface in combination with a few WordPress hooks to achieve the main principles and ideas behind the framework.
-
 ## Main principles
 
 The main functionality of the Flynt Core can be seen as a HTML generator. Given a minimal configuration the Flynt Core plugin first creates a "Construction Plan" and then renders it.

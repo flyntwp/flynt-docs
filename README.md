@@ -18,11 +18,11 @@ brew update
 brew install yarn
 ```
 
-Not on macOS? [See full installation options here.](https://yarnpkg.com/en/docs/install)
+Not on macOS? [See the full installation options here.](https://yarnpkg.com/en/docs/install)
 
 
-<!-- If this is your first experience with Flynt, check out the [requirements](requirements.md) and the [installation and setup instructions](setup.md), then get started with our [basic tutorial series](getting-started/readme.md). -->
+Then run the setup command and follow the instructions:
 
-<!-- ## Diving deeper
-
-To further your understanding of the Flynt theme, take a look through the section on [Theme Development](theme-development/readme.md), then explore the [advanced functionality](theme-development/advanced/readme.md). -->
+```
+flynt setup
+```

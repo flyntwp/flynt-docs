@@ -1,5 +1,7 @@
 # 5. Next Steps
 
+TODO: Add download zip link for the finished tutorial module.
+
 Congratulations on building your first component! In this "Getting Started" series we have walked through the key steps in making a reusable component.
 
 <div class="alert">

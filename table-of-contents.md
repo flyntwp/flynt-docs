@@ -3,6 +3,7 @@
 ## Getting Started
 * [Quick Start](README.md)
 * [Requirements](requirements.md)
+* [Theme Structure](theme-structure.md)
 * [Build Your First Component](tutorial/first-component/hello-world.md)
   * [2. Using ACF](tutorial/first-component/using-acf.md)
   * [3. Modifying Data](tutorial/first-component/modify-data.md)
@@ -18,18 +19,18 @@
 * [Static Assets](components/static-assets.md)
 * [Fields](components/fields.md)
 * [Functions](components/functions.md)
+* [View Templates](components/view-templates.md)
 
-## Advanced Custom Fields
+## Advanced Custom Fields (ACF)
 * [Flexible Content](acf/flexible-content.md)
 * [Repeaters](acf/repeaters.md)
 * [Options Page](acf/options-page.md)
 * [Customizing WYSIWYG Fields](acf/customizing-wysiwygs.md)
 
-## Workflow
-* [Change Style Language](workflow/changing-style-language.md)
-* [Change Template Language](workflow/changing-template-language.md)
-* [Theme Structure](workflow/theme-structure.md)
-* [Working with Yoast](workflow/yoast.md)
+## Customization
+* [Change Style Language](customization/changing-style-language.md)
+* [Change Template Language](customization/changing-template-language.md)
+* [Working with Yoast](customization/yoast.md)
 
 ## Library
 * [Introduction](library/introduction.md)

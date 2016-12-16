@@ -15,7 +15,7 @@
 </div>
 
 ## 1.1 Configuring Page Templates
-All template files in Flynt can be found under the theme root, in the `templates` directory. You can learn more about how Flynt handles page templates [here](../../workflow/theme-structure.md).
+All template files in Flynt can be found under the theme root, in the `templates` directory. You can learn more about how Flynt handles page templates [here](../../theme-structure.md).
 
 For this tutorial we will be using the default `template/page.php` template. This file contains only one line of code:
 
@@ -50,7 +50,7 @@ Here we store our default page layout:
 }
 ```
 
-For a detailed look at how these template configurations work, [you can read more here](../workflow/theme-structure.md).
+For a detailed look at how these template configurations work, [you can read more here](../theme-structure.md).
 
 ## 1.2 Creating your Component
 All components are located in the `Components` directory. Create a new folder in this directory with the name `PostSlider`.

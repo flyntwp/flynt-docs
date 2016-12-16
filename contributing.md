@@ -4,7 +4,13 @@ Please submit clarifications and improvements to the documentation! If it's just
 
 ## Titles and Headers
 
-All page titles and headers are written in `Title Case`.
+All page titles and headers are written in "Title Case".
+
+> The Quick Brown Fox Jumps Over the Lazy Dog and Demonstrates Title Case to the Reader.
+
+## Use American English
+
+Use the standard [American English](https://en.oxforddictionaries.com/spelling/british-and-spelling) spelling rules.
 
 ## Avoid the First Person ("I" and "We")
 
@@ -23,3 +29,7 @@ Do not write "it's", "they've". Write "it is", "they have".
 ## Test All Code Snippets
 
 Please make sure all code snippets are tested and will definitely work.
+
+## Tense: Avoid using '-ing'
+
+Where possible, do not add '-ing' to verbs. Rather than "adding", "changing" - use "add" and "change".
