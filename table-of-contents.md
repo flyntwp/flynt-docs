@@ -2,6 +2,7 @@
 
 ## Getting Started
 * [Quick Start](README.md)
+* [Requirements](requirements.md)
 * [Build Your First Component](tutorial/first-component/hello-world.md)
   * [2. Using ACF](tutorial/first-component/using-acf.md)
   * [3. Modifying Data](tutorial/first-component/modify-data.md)
@@ -39,7 +40,7 @@
 * [Quick Start](core/README.md)
 * [Concepts](core/concepts.md)
 * [API](core/api/flynt.md)
-  * [ModuleManager](core/api/module-manager.md)
+  * [ComponentManager](core/api/component-manager.md)
   * [BuildConstructionPlan](core/api/build-construction-plan.md)
   * [Render](core/api/render.md)
   * [Filters](core/api/filters.md)
