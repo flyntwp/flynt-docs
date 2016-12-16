@@ -12,11 +12,11 @@
 * [Custom Data](components/custom-data.md)
 * [Data Filters](components/data-filters.md)
 * [Dynamic Sub-Components](components/dynamic-subcomponents.md)
-* [Scripts](#)
-* [Styles](#)
-* [Static Assets](#)
-* [Fields](#)
-* [Functions](#)
+* [Scripts](components/scripts.md)
+* [Styles](components/styles.md)
+* [Static Assets](components/static-assets.md)
+* [Fields](components/fields.md)
+* [Functions](components/functions.md)
 
 ## Advanced Custom Fields
 * [Flexible Content](acf/flexible-content.md)
