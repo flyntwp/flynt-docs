@@ -3,11 +3,9 @@
 Getting started with the Flynt Core plugin is a simple two step process:
 
 1. Install the Flynt Core plugin into the standard Wordpress folder.
-2. Active the plugin in the Wordpress Administration "Plugins" panel.
+2. Activate the plugin in the Wordpress Administration "Plugins" panel.
 
-With this done, you're good to go! This is the complete setup required to use the Flynt Core plugin.
-
-However, to quickly enjoy all of the benefits offered by the Flynt Framework, we strongly recommend using the official [Flynt Theme](/add-link-here).
+That's it!
 
 ## First steps
 
