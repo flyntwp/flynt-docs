@@ -2,6 +2,7 @@
 
 ## Getting Started
 * [Quick Start](README.md)
+* [Requirements](requirements.md)
 * [Build Your First Component](tutorial/first-component/hello-world.md)
   * [2. Using ACF](tutorial/first-component/using-acf.md)
   * [3. Modifying Data](tutorial/first-component/modify-data.md)
@@ -12,6 +13,11 @@
 * [Custom Data](components/custom-data.md)
 * [Data Filters](components/data-filters.md)
 * [Dynamic Sub-Components](components/dynamic-subcomponents.md)
+* [Scripts](components/scripts.md)
+* [Styles](components/styles.md)
+* [Static Assets](components/static-assets.md)
+* [Fields](components/fields.md)
+* [Functions](components/functions.md)
 
 ## Advanced Custom Fields
 * [Flexible Content](acf/flexible-content.md)
@@ -32,7 +38,13 @@
 ## Core
 
 * [Quick Start](core/README.md)
-* [API](#)
+* [Concepts](core/concepts.md)
+* [API](core/api/flynt.md)
+  * [ComponentManager](core/api/component-manager.md)
+  * [BuildConstructionPlan](core/api/build-construction-plan.md)
+  * [Render](core/api/render.md)
+  * [Filters](core/api/filters.md)
+  * [Actions](core/api/actions.md)
 
 ## CLI
 
