@@ -1,33 +1,33 @@
-# ModuleManager (class)
+# ComponentManager (class)
 
-Singleton used internally to manage registered modules.
+Singleton used internally to manage registered components.
 
 ## getInstance (static)
-Get the singleton of the ModuleManager.
+Get the singleton of the ComponentManager.
 ```php
 public static function getInstance()
 ```
 
-## registerModule
-Register a module for later use.
+## registerComponent
+Register a component for later use.
 ```php
-public function registerModule(string $moduleName, string $modulePath = null)
+public function registerComponent(string $componentName, string $componentPath = null)
 ```
 
-## getModuleFilePath
-Get the path to a module specific file.
+## getComponentFilePath
+Get the path to a component specific file.
 ```php
-public function getModuleFilePath(string $moduleName, string $fileName = 'index.php')
+public function getComponentFilePath(string $componentName, string $fileName = 'index.php')
 ```
 
 ## getAll
-Get all registered Modules.
+Get all registered Components.
 ```php
 public function getAll()
 ```
 
 ## removeAll
-Remove all registered Modules.
+Remove all registered Components.
 ```php
 public function removeAll()
 ```

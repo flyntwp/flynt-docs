@@ -1,14 +1,14 @@
-## 3. Adding Submodules Dynamically
+## 3. Adding Subcomponents Dynamically
 
-### Example Usage of the dynamicSubmodules filter
+### Example Usage of the dynamicSubcomponents filter
 
 ```php
 <?php
-add_filter("WPStarter/dynamicSubmodules?name=ParentModule", function($areas, $data, $parentData) {
+add_filter("Flynt/dynamicSubcomponents?name=ParentComponent", function($areas, $data, $parentData) {
   $areas['area51'] = [
     [
-      'name' => 'ChildModuleName',
-      'dataFilter' => 'WPStarter/DataFilters/ChildModuleName/foo',
+      'name' => 'ChildComponentName',
+      'dataFilter' => 'Flynt/DataFilters/ChildComponentName/foo',
       'customData' => [
         'test1' => 1
       ]
@@ -18,26 +18,26 @@ add_filter("WPStarter/dynamicSubmodules?name=ParentModule", function($areas, $da
 }, 10, 3);
 ```
 
-#### `WPStarter/configPath`
+#### `Flynt/configPath`
 Use this filter to set the path to your desired config file. Accepts up to two arguments: `$filePath` and `$fileName` including ending. Defaults to `{theme-folder}/config/{$fileName}`
 
 Example:
 ```php
 <?php
-add_filter('WPStarter/configPath', function($filePath, $fileName) {
+add_filter('Flynt/configPath', function($filePath, $fileName) {
   return get_template_directory() . '/someConfigFolder/' . $fileName;
 }, 10, 2);
 ```
 
 The original filter is overwritten as long as the filter priority is < 999.
 
-#### `WPStarter/configFileLoader`
+#### `Flynt/configFileLoader`
 Use this filter to define your own custom config loading mechanism. Accepts up to three arguments: `$configArray`, `$configFileName`, `$configFilePath`. By default it runs a `json_decode` on the expected json file and returns the resulting array.
 
 Example for loading `.yaml` files instead:
 ```php
 <?php
-add_filter('WPStarter/configFileLoader', function ($configArray, $configFileName, $configFilePath) {
+add_filter('Flynt/configFileLoader', function ($configArray, $configFileName, $configFilePath) {
   return yaml_parse_file($configFilePath);
 }, 10, 3);
 ```
@@ -46,11 +46,11 @@ The original filter is overwritten as long as the filter priority is < 999.
 
 ## 3. Getting Started
 
-Assuming you have a folder called **Modules** in your theme directory, which looks something like this:
+Assuming you have a folder called **Components** in your theme directory, which looks something like this:
 ```
 - my-theme
-| - Modules
-  | - SimpleModule
+| - Components
+  | - SimpleComponent
     | - index.php
 | - style.css
 | - functions.php
@@ -59,25 +59,25 @@ Assuming you have a folder called **Modules** in your theme directory, which loo
 
 Using the plugin is as simple as putting the following code into your functions.php and index.php:
 
-- TODO _Check `use WPStarter` statement_
+- TODO _Check `use Flynt` statement_
 
 _my-theme/functions.php_
 ```php
 <?php
-// register your module
-WPStarter\registerModule('SimpleModule');
+// register your component
+Flynt\registerComponent('SimpleComponent');
 ```
 
 _my-theme/index.php_
 ```php
 <?php
-// render the index.php of your simple module
-WPStarter\echoHtmlFromConfig([
-  'name' => 'SimpleModule'
+// render the index.php of your simple component
+Flynt\echoHtmlFromConfig([
+  'name' => 'SimpleComponent'
 ]);
 ```
 
-_my-theme/Modules/SimpleModule/index.php_
+_my-theme/Components/SimpleComponent/index.php_
 ```php
 <?php
 echo 'Hello World!';
@@ -85,22 +85,22 @@ echo 'Hello World!';
 
 TODO _Add example image of rendered version_
 
-### Changing the default module directory
+### Changing the default component directory
 
 Add this to your functions.php and customize it according to your needs:
 ```php
 <?php
-add_filter('WPStarter/modulePath', function($modulePath, $moduleName) {
-  $modulePath = get_template_directory() . '/{YourFolderInYourTheme}/' . $moduleName;
-  return $modulePath;
+add_filter('Flynt/componentPath', function($componentPath, $componentName) {
+  $componentPath = get_template_directory() . '/{YourFolderInYourTheme}/' . $componentName;
+  return $componentPath;
 }, 10, 2);
 ```
 
-### Loading additional files in a module
+### Loading additional files in a component
 ```php
 <?php
-add_action('WPStarter/registerModule', function($modulePath) {
-  $filePath = $modulePath . '/some-file.php';
+add_action('Flynt/registerComponent', function($componentPath) {
+  $filePath = $componentPath . '/some-file.php';
   if(file_exists($filePath)) {
     require_once $filePath;
   }
@@ -110,18 +110,18 @@ add_action('WPStarter/registerModule', function($modulePath) {
 ### If you don't want to load a functions.php
 ```php
 <?php
-remove_action('WPStarter/registerModule', ['WPStarter\DefaultLoader', 'loadFunctionsPhp']);
+remove_action('Flynt/registerComponent', ['Flynt\DefaultLoader', 'loadFunctionsPhp']);
 ```
 
-### Adding Data to a Module
+### Adding Data to a Component
 
 - TODO _Add overwriting exaplanation with customData_
 
-To add data to a module, first register a Datafilter in your configuration array / file.
+To add data to a component, first register a Datafilter in your configuration array / file.
 ```php
 <?php
-WPStarter\echoHtmlFromConfig([
-  'name' => 'SimpleModule',
+Flynt\echoHtmlFromConfig([
+  'name' => 'SimpleComponent',
   'dataFilter' => 'MyFilters/myFilterName'
 ])
 ```
@@ -148,13 +148,13 @@ Add this filter to your functions.php
 
 ```php
 <?php
-add_filter('WPStarter/renderModule', function($output, $moduleName, $moduleData, $areaHtml) {
+add_filter('Flynt/renderComponent', function($output, $componentName, $componentData, $areaHtml) {
   // get index file
-  $moduleManager = WPStarter\ModuleManager::getInstance();
-  $filePath = $moduleManager->getModuleFilePath($moduleName, 'index.twig');
+  $componentManager = Flynt\ComponentManager::getInstance();
+  $filePath = $componentManager->getComponentFilePath($componentName, 'index.twig');
 
   // Add areas to data
-  $data = array_merge($moduleData, ['areas' => $areaHtml]);
+  $data = array_merge($componentData, ['areas' => $areaHtml]);
 
   // return html rendered by timber / twig
   return Timber::fetch($filePath, $data);

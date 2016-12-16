@@ -8,16 +8,16 @@ function initDefaults()
 ```
 Initializes a set of defaults used for regular setups.
 
-## registerModule
+## registerComponent
 ```php
-function registerModule(string $moduleName, string $modulePath = null)
+function registerComponent(string $componentName, string $componentPath = null)
 ```
-Registers a module for later use. If no `$modulePath` is specified, the default will be taken.
+Registers a component for later use. If no `$componentPath` is specified, the default will be taken.
 
 ```php
-function registerModules(array $modules = [])
+function registerComponents(array $components = [])
 ```
-Registers an array of modules for later use. The array can consist of module names only (as values), or with the module name as key and module path as value.
+Registers an array of components for later use. The array can consist of component names only (as values), or with the component name as key and component path as value.
 
 ## (echo|get)HtmlFromConfig
 ```php
