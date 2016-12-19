@@ -13,7 +13,7 @@
 ## 4.1 Adding Styles
 Each component can have a self-contained style file. By default, Flynt supports vanilla CSS files, and the pre-processor [Stylus](http://stylus-lang.com/). In this tutorial we will use Stylus.
 
-**[If you do not like Stylus or vanilla CSS, you can learn how to switch the styling language here.](../../workflow/changing-style-language.md)**
+**[If you do not like Stylus or vanilla CSS, you can learn how to switch the styling language here.](../../customization/changing-style-language.md)**
 
 To get started, create `Components/PostSlider/style.styl` and add the styles below:
 

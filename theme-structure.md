@@ -5,11 +5,11 @@
 Overview of theme folder structure.
 
 ```
-|── config
-|──── customPostTypes
-|──── fieldGroups
-|──── templates
-|──── wordpress
+├── config/
+|   ├── customPostTypes
+|   ├── fieldGroups
+|   ├── templates
+|   └── wordpress
 └── dist
 └── lib
 └── Components

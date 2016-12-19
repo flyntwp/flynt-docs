@@ -7,11 +7,11 @@ To find out more about Timber's functionality, we strongly recommend reading thr
 
 ## Do I have to use Timber and Twig?
 
-No, this is just our personal recommendation. You can easily change this with the `renderComponent` filter. [Learn how here](../workflow/changing-template-language.md).
+No, this is just our personal recommendation. You can easily change this with the `renderComponent` filter. [Learn how here](../customization/changing-template-language.md).
 
 ## Do I have to use Stylus?
 
-No, this is just our personal recommendation. You can use plain CSS without needing to change anything, or setup your pre-processor of choice with Gulp. [Learn more here](../workflow/changing-style-language.md).
+No, this is just our personal recommendation. You can use plain CSS without needing to change anything, or setup your pre-processor of choice with Gulp. [Learn more here](../customization/changing-style-language.md).
 
 ## What's Rupture?
 

@@ -60,7 +60,7 @@ To combine our text with the date, we will now need to make use of the `modifyCo
 
 Since it is component specific, we place this filter into the `functions.php` file of a component.
 
-<p class="source-note source-note--info">This file follows the original Wordpress <code>functions.php</code> functionality, only re-organised to match Flynt's modular structure. <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank">Read more here</a></p>
+<p class="source-note source-note--info">This file follows the original Wordpress <code>functions.php</code> functionality, only re-organized to match Flynt's modular structure. <a href="https://codex.wordpress.org/Functions_File_Explained" target="_blank">Read more here</a></p>
 
 Open the backend interface for your page and add the following content to the "Posts Per Page Text" field and hit update:
 
