@@ -32,9 +32,31 @@
 * [Change Template Language](customization/changing-template-language.md)
 * [Working with Yoast](customization/yoast.md)
 
-## Library
-* [Introduction](library/introduction.md)
-* [Custom Post Types](library/custom-post-types.md)
+## Features
+* [Introduction](features/introduction.md)
+* [Acf](#)
+* [AdminNotices](#)
+* [CleanHead](#)
+* [CleanRss](#)
+* [Components](#)
+* [CustomPostTypes](features/custom-post-types.md)
+* [Jquery](#)
+* [MimeTypes](#)
+* [Navigation](#)
+* [RemoveEditor](#)
+* [Templates](#)
+* [Timber](#)
+* [TinyMce](#)
+
+## Utils
+* [Introduction](utils/introduction.md)
+* [ArrayHelpers](utils/array-helpers.md)
+* [Asset](utils/asset.md)
+* [DomNode](#)
+* [Feature](utils/feature.md)
+* [FileLoader](#)
+* [Log](utils/log.md)
+* [StringHelpers](utils/string-helpers.md)
 
 ## Core
 
