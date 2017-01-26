@@ -3,11 +3,11 @@
 <div class="alert">
   <h3>This tutorial covers:</h3>
   <ul>
-    <li><strong><a href="#31-using-modifycomponentdata-and-functionsphp">Using <code>modifyComponentData</code> and <code>functions.php</code></strong></a></li>
+    <li><strong><a href="#31-using-addComponentData-and-functionsphp">Using <code>addComponentData</code> and <code>functions.php</code></strong></a></li>
   </ul>
 </div>
 
-## 3.1 Using `modifyComponentData` and `functions.php`
+## 3.1 Using `addComponentData` and `functions.php`
 
 Our component is now functional, but looking at our existing view template, we are still left with hard-coded text:
 
@@ -24,7 +24,7 @@ The ideal would be to make this text dynamic, but still let the editor insert th
 
 First, lets create a new field for the Post Slider component named `postsPerPageText`.
 
-Update `Components/PostSlider/fields.json` to match the below:
+Update `Components/PostSlider/fields.json` to match the following:
 
 ```json
 {
@@ -54,7 +54,7 @@ Update `Components/PostSlider/fields.json` to match the below:
 }
 ```
 
-To combine our text with the date, we will now need to make use of the `modifyComponentData` filter.
+To combine our text with the date, we will now need to make use of the `addComponentData` filter.
 
 **This is the last entry point where it is possible to modify the data of a particular component.**
 
@@ -68,21 +68,21 @@ Open the backend interface for your page and add the following content to the "P
 
 Now we'll take the value and replace the `$postsPerPage` string with the `postsPerPage` data we passed through our data filter.
 
-First create `Components/PostSlider/functions.php` and add the below:
+First create `Components/PostSlider/functions.php` and add the code below:
 
 ```php
   <?php
   namespace Flynt\Components\PostSlider;
 
-  add_filter('Flynt/modifyComponentData?name=PostSlider', function ($data) {
-    $data['postsPerPageText'] = str_replace('$postsPerPage', $data['postsPerPage'], $data['postsPerPageText'])
+  add_filter('Flynt/addComponentData?name=PostSlider', function ($data) {
+    $data['postsPerPageText'] = str_replace('$postsPerPage', $data['postsPerPage'], $data['postsPerPageText']);
     return $data;
-  }, 10, 2);
+  });
 ```
 
-It is important to note here that it is necessary to append `?name=` to the filter, passing the target component name as a parameter to our `modifyComponentData` filter.
+It is important to note here that it is necessary to append `?name=` to the filter, passing the target component name as a parameter to our `addComponentData` filter.
 
-To finish up, update the view template `Components/PostSlider/index.twig` with the below:
+To finish up, update the view template `Components/PostSlider/index.twig` with the code below:
 
 ```twig
 <div is="flynt-post-slider">
@@ -108,7 +108,7 @@ We're done! Our editor can now change and re-word the text as they wish, adding 
 <div class="alert alert-steps">
   <h2>Next Steps</h2>
 
-  <p>We have covered the core concepts of building a dynamic content driven component. What's missing is front-end flare. To round up the series we'll dive into assets and how we require styles, scripts, and images.</p>
+  <p>We have covered the core concepts of building a dynamic content driven component. What's missing is front-end styling. To round up the series we'll dive into assets and how we require styles, scripts, and images.</p>
 
   <p><a href="adding-assets.md" class="btn btn-primary">Learn how to add assets</a></p>
 </div>

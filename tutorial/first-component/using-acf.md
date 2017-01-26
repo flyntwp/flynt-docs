@@ -16,15 +16,15 @@
 </div>
 
 ## 2.1 Adding ACF Fields
-Advanced Custom Fields (ACF) is a Wordpress plugin to make adding custom meta fields easy and intuitive, with a straight-forward API and seamless integration into the back-end of Wordpress. With Flynt, ACF is used to add user-editable fields at the component level.
+[Advanced Custom Fields (ACF)](http://advancedcustomfields.com) is a Wordpress plugin to make adding custom meta fields easy and intuitive, with a straight-forward API and seamless integration into the back-end of Wordpress. With Flynt, ACF is used to add user-editable fields to components.
 
-To get started, add a single ACF text field to the `PostSlider` component.
+To get started, add a single ACF text field to the PostSlider component.
 
 Create `Components/PostSlider/fields.json` and add the code below:
 
 ```json
 {
-  "fields": [
+  "content": [
     {
       "name": "title",
       "label": "Title",
@@ -49,7 +49,7 @@ That's all we need to do to register a new field for a component.
 
 If you are already familiar with ACF, you will notice that these field options (e.g. "required") are exactly the same as those provided [natively by ACF](https://www.advancedcustomfields.com/resources/text/). This is the case for all fields we author with Flynt's `fields.json`.
 
-Before this field will be visible in the back-end, however, we still need to define in which situations these fields should be available to the editor. We will do this in the next section by adding a new "Field Group".
+Before this field will be visible in the back-end, we still need to define in which situations these fields should be available. We will do this in the next section by adding a new "Field Group".
 
 <a href="https://github.com/bleech/wp-starter-snippets" class="source-note source-note--info">ACF offers around 20 different field types. To make the process of authoring these fields simpler, install our fields.json snippets for Atom or Sublime Text.</a>
 
@@ -78,7 +78,7 @@ Open `config/fieldGroups/pageComponents.json` and replace the contents with the 
   "name": "pageComponents",
   "title": "Page Components",
   "fields": [
-    "Flynt/Components/PostSlider/Fields"
+    "Flynt/Components/PostSlider/Fields/Content"
   ],
   "location": [
     [
@@ -99,9 +99,9 @@ In the "fields" array, we specifically pull in the fields from our Post Slider c
   "name": "pageComponents",
   "title": "Page Components",
   "fields": [
-    "Flynt/Components/PostSlider/Fields",
-    "Flynt/Components/ExampleComponent/Fields",
-    "Flynt/Components/AnotherComponent/Fields"
+    "Flynt/Components/PostSlider/Fields/Content",
+    "Flynt/Components/ExampleComponent/Fields/Content",
+    "Flynt/Components/AnotherComponent/Fields/Content"
   ]
 }
 ```
@@ -146,7 +146,7 @@ That's all there is to it! All of the component's fields are automatically avail
 
 ## 2.4 Understanding the Flynt Data Flow
 
-At this point it is important to understand how the Flynt Core plugin is passing this data to the view. In actual fact, the data function uses the data passed to the template referenced by its keys. This can be understood much easier with the flowchart below:
+At this point it is important to understand how the Flynt Core plugin is passing this data to the view. Timber uses the data passed to the template, but before this point it is still possible to interact with and add to the data. This can be understood much easier with the flowchart below:
 
 <pre class="language- flowchart">
   <code>
@@ -156,12 +156,12 @@ At this point it is important to understand how the Flynt Core plugin is passing
                  |
                  |
   +--------------v---------------+
-  |         DataFilters          |
+  |        Add Custom Data       |
   +--------------+---------------+
                  |
                  |
   +--------------v---------------+
-  |      modifyComponentData     |
+  |       addComponentData       |
   +--------------+---------------+
                  |
                  |
@@ -184,22 +184,12 @@ At this point it is important to understand how the Flynt Core plugin is passing
                  |
                  |
   +--------------v---------------+
-  |    Initial Component Config  |
-  +--------------+---------------+
-                 |
-                 |
-  +--------------v---------------+
-  |         DataFilters          |
-  +--------------+---------------+
-                 |
-                 |
-  +--------------v---------------+
   |         Custom Data          |
   +--------------+---------------+
                  |
                  |
   +--------------v---------------+
-  |       modifyComponentData    |
+  |       addComponentData       |
   +--------------+---------------+
                  |
        Pass data to template
@@ -213,9 +203,9 @@ At this point it is important to understand how the Flynt Core plugin is passing
 <a href="/add-link" class="source-note">To dig into this more, read through the full flowchart in the Flynt Core plugin documentation.</a>
 
 ## 2.5 Taking our Component Further
-We will now create an image slider by pulling the featured image from a list of posts selected by the user.
+Now we want to pull the featured image from a list of posts selected by the user.
 
-Open `Modules/PostSlider/fields.json` and add a post object field to the component:
+Open `Components/PostSlider/fields.json` and add a post object field to the component:
 
 ```json
 {
@@ -270,7 +260,7 @@ Here, Timber's default Wordpress image handling provides us with our featured im
 <div class="alert alert-steps">
   <h2>Next Steps</h2>
 
-  <p>We now have a simple component that takes data from our fields and outputs them on the front-end! But what if we want do pull other data in our component? The next section explores passing additional data to our component.</p>
+  <p>We now have a simple component that takes data from our fields and outputs them on the front-end! But what if we want to pull other data in our component? The next section explores passing additional data to our component.</p>
 
-  <p><a href="modify-data.md" class="btn btn-primary">Learn to modify component data</a></p>
+  <p><a href="modify-data.md" class="btn btn-primary">Learn to add component data</a></p>
 </div>

@@ -43,35 +43,35 @@ Before these styles will show up, we need to enqueue our stylesheet.
 Open `Components/PostSlider/functions.php` and add the following code below the component namespace:
 
 ```php
-use Flynt\Helpers\Component;
+use Flynt\Features\Components\Component;
 ```
 
 Then, at the bottom, add the code below to enqueue the stylesheet:
 
 ```php
 add_action('wp_enqueue_scripts', function () {
-  Component::enqueueAssets('ImageSlider');
+  Component::enqueueAssets('PostSlider');
 });
 
 ```
 
-With `Component::enqueueAssets` we are telling our component to look for any style or script file within the component folder and enqueue it. [You can read more in the Flynt Core plugin documentation](/add-link).
+With `Component::enqueueAssets` we are telling our component to look for any style or script file within the component folder and enqueue it. [You can read more in the Component Feature section](/add-link).
 
 In summary, the `Components/PostSlider/functions.php` file now looks like the following:
 
 ```php
   <?php
-  namespace Flynt\Components\ImageSlider;
+  namespace Flynt\Components\PostSlider;
 
   use Flynt\Helpers\Component;
 
-  add_filter('Flynt/modifyComponentData?name=ImageSlider', function ($data) {
+  add_filter('Flynt/addComponentData?name=PostSlider', function ($data) {
     $data['lastEditedText'] = str_replace('$date', $data['lastEditedDate'], $data['lastEditedText']);
     return $data;
-  }, 10, 2);
+  });
 
   add_action('wp_enqueue_scripts', function () {
-    Component::enqueueAssets('ImageSlider');
+    Component::enqueueAssets('PostSlider');
   });
 ```
 
@@ -79,28 +79,16 @@ Refresh your page and you will now see our new styles.
 
 That's it! Though there are a few more recommendations to keep in mind:
 
-- Each component is uniquely identified with the `is` attribute. We use this for both styling and scripting, as you will see below. All styles are scoped within this one over-arching identifier.
-- At the core of the Flynt philosophy is reusability and scalability. As such, we strongly recommend following [maintainableCSS](http://maintainablecss.com/); an approach to writing modular and maintainable styles.
+- Each component is uniquely identified with the `is` attribute. We use this for both styling and scripting, as you will see below. All styles are scoped within this component identifier.
+- At the core of the Flynt philosophy is reusability and scalability. As such, we strongly recommend following the [maintainableCSS](http://maintainablecss.com/) guidelines.
 
 ## 4.2 Adding Scripts
-Just as with our styles, scripts live at the Component level and are completely self contained.
+Just as with our styles, scripts live in our component folder and are completely self contained.
 
 Create `Components/PostSlider/script.js` and add the following code:
 
 ```js
 class PostSlider extends window.HTMLDivElement {
-  constructor (self) {
-    self = super(self)
-    self.$ = $(self)
-    self.resolveElements()
-    return self
-  }
-
-  // Scope elements we need to the module
-  resolveElements () {
-    this.$slider = $('.slider-items', this)
-  }
-
   connectedCallback () {
     console.log('connected')
   }
@@ -109,26 +97,26 @@ class PostSlider extends window.HTMLDivElement {
 window.customElements.define('flynt-post-slider', PostSlider, {extends: 'div'})
 ```
 
-This is our basic recommended Javascript Custom Element starting template. It is written in ES2015, and will be compiled to ES5 using [Babel](https://babeljs.io/).
+This is our basic recommended Javascript Custom Element starting template. It is written in ES2015 (ES6), and will be compiled to ES5 using [Babel](https://babeljs.io/).
 
 <p class="source-note">Before continuing we strongly recommended reading <a href="https://developers.google.com/web/fundamentals/getting-started/primers/customelements">Google's Getting Started Primer for Custom Elements</a>. However, we will build upon this template in the coming sections.</p>
 
-If you are not comfortable with Custom Elements or ES2015, we do not force you to adopt this for your Javascript (only strongly recommend it). At a basic level, the component `script.js` file will always be copied into the matching `dist` folder. You are free to write the Javascript within it as you wish.
+If you are not comfortable with Custom Elements or ES2015 (ES6), we do not force you to adopt this for your Javascript (only strongly recommend it). At a basic level, the component `script.js` file will always be copied into the matching `dist` folder. **You are free to write the Javascript within it as you wish.**
 
 ## 4.3 Adding and Registering Dependencies
-In order to turn our images into a real slider, we'll use [Yarn](https://yarnpkg.com) to add [Slick Carousel](http://kenwheeler.github.io/slick/) to our component.
+In order to turn our images into a slider, we'll use the [Flynt CLI](../../cli/README.md) to add [Slick Carousel](http://kenwheeler.github.io/slick/) to the component.
 
-In the theme root folder, open your terminal and run this command to install Slick:
+Open the terminal, navigate to the project folder and run this command to install Slick:
 
 ```
-yarn add slick-carousel -D
+flynt add slick-carousel
 ```
 
 Now we need to import this dependency into our component.
 
 First, we will let Flynt know which scripts and styles from slick need copying into the `build/vendor` folder.
 
-Do this by adding the below code to the top of `Components/PostSlider/script.js`:
+Do this by adding the code below to the top of `Components/PostSlider/script.js`:
 
 ```js
 import 'file-loader?name=vendor/slick.js!slick-carousel'
@@ -141,7 +129,7 @@ Open `Components/PostSlider/functions.php` and enqueue the dependencies by modif
 
 ```php
 add_action('wp_enqueue_scripts', function () {
-  Component::enqueueAssets('ImageSlider', [
+  Component::enqueueAssets('PostSlider', [
     [
       'name' => 'slick-carousel',
       'path' => 'vendor/slick.js',
@@ -191,61 +179,61 @@ window.customElements.define('flynt-post-slider', PostSlider, {extends: 'div'})
 ## 4.4 Adding Static Assets
 Sometimes we need static assets, such as icons, that do not come directly from the user in the back-end.
 
-To implement this, create an `asset` directory in the ImageSlider component directory. Then, download and add `downloadIcon.svg` ([available here](http://iconmonstr.com/download-11/)) to the new `asset` directory.
+To implement this, create an `asset` directory in the PostSlider component directory. Then, download and add `downloadIcon.svg` ([available here](http://iconmonstr.com/download-11/)) to the new `asset` directory.
 
 ```
 | flynt-theme
 |── Components
-    └── ImageSlider
+    └── PostSlider
        └── Assets/
           └── downloadIcon.svg
 ```
 
-When gulp is running, any image (JPG, JPEG, PNG, GIF) or SVG file placed into this folder will be automatically copied to the corresponding folder within `dist`.
+When flynt is running, any file (other than Javascript, Stylus, SASS, and LESS) placed into this folder will be automatically copied to the corresponding folder within `dist`.
 
 In our case, `downloadIcon.svg` will be copied to `dist/Components/PostSlider/assets/downloadIcon.svg`.
 
 For caching purposes, all static assets are automatically revisioned by gulp (for example, `downloadIcon.svg` → `downloadIcon-d41d8cd98f.svg`).
 
-As such, to include assets in a component, it is necessary to use the `requireAssetUrl` function. This is a utility function provided by the Flynt Core plugin. You can read more about this in the [Flynt Core plugin documentation](/add-link).
+As such, to include assets in a component, it is necessary to use the `requireAssetUrl` function. This is a utility function provided by the Asset Util. You can read more about this in the [Util Asset section](/add-link).
 
-Open `Components/PostSlider/functions.php`. At the top of the file, we need to `use` our `Utils` helpers:
+Open `Components/PostSlider/functions.php`. At the top of the file, we need to `use` our `Asset` helper:
 
 ```php
 <?php
-namespace Flynt\Components\ImageSlider;
+namespace Flynt\Components\PostSlider;
 
-use Flynt\Helpers\Utils;
+use Flynt\Utils\Asset;
 //...
 ```
 
 We will then add the image URL to our component data by calling the `requireAssetUrl` function with the path to our image:
 
 ```php
- add_filter('Flynt/modifyComponentData?name=ImageSlider', function ($data) {
-   $data['downloadIconUrl'] = Utils::requireAssetUrl('Components/PostSlider/assets/downloadIcon.svg');
+ add_filter('Flynt/addComponentData?name=PostSlider', function ($data) {
+   $data['downloadIconUrl'] = Asset::requireAssetUrl('Components/PostSlider/Assets/downloadIcon.svg');
    ...
    return $data;
- }, 10, 2);
+ });
 ```
 
-In summary, the `Components/PostSlider/functions.php` should now match the below code:
+In summary, the `Components/PostSlider/functions.php` should now match the code below:
 
 ```php
 <?php
-namespace Flynt\Components\ImageSlider;
+namespace Flynt\Components\PostSlider;
 
-use Flynt\Helpers\Utils;
-use Flynt\Helpers\Component;
+use Flynt\Utils\Asset;
+use Flynt\Features\Components\Component;
 
-add_filter('Flynt/modifyComponentData?name=ImageSlider', function ($data) {
-  $data['downloadIconUrl'] = Utils::requireAssetUrl('Components/PostSlider/assets/downloadIcon.svg');
+add_filter('Flynt/addComponentData?name=PostSlider', function ($data) {
+  $data['downloadIconUrl'] = Asset::requireAssetUrl('Components/PostSlider/Assets/downloadIcon.svg');
   $data['lastEditedText'] = str_replace('$date', $data['lastEditedDate'], $data['lastEditedText']);
   return $data;
-}, 10, 2);
+});
 
 add_action('wp_enqueue_scripts', function () {
-  Component::enqueueAssets('ImageSlider', [
+  Component::enqueueAssets('PostSlider', [
     [
       'name' => 'slick-carousel',
       'path' => 'vendor/slick.js',
