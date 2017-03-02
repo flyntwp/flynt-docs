@@ -24,7 +24,7 @@
 
 ## Wordpress
 * [Custom Post Types](wordpress/custom-post-types.md)
-* [Custom Post Types](wordpress/custom-taxonomies.md)
+* [Custom Taxonomies](wordpress/custom-taxonomies.md)
 * [Page Templates](wordpress/page-templates.md)
 * [Theme Structure](wordpress/theme-structure.md)
 
