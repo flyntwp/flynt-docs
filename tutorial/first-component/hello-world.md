@@ -15,7 +15,7 @@
 </div>
 
 ## 1.1 Configuring Page Templates
-All template files in Flynt can be found under the theme root, in the `templates` directory. You can learn more about how Flynt handles page templates [here](../../theme-structure.md).
+All template files in Flynt can be found under the theme root, in the `templates` directory. You can learn more about how Flynt handles page templates [here](../../wordpress/page-templates.md).
 
 For this tutorial we will be using the default `template/page.php` template. This file contains only one line of code:
 

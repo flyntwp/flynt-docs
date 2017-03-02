@@ -3,7 +3,7 @@
 ## Getting Started
 * [Quick Start](README.md)
 * [Requirements](requirements.md)
-* [Theme Structure](theme-structure.md)
+* [Features](features/introduction.md)
 * [Tutorial: Build Your First Component](tutorial/first-component/hello-world.md)
   * [1. Hello World](tutorial/first-component/hello-world.md)
   * [2. Using ACF](tutorial/first-component/using-acf.md)
@@ -22,6 +22,12 @@
 * [Functions](components/functions.md)
 * [View Templates](components/view-templates.md)
 
+## Wordpress
+* [Custom Post Types](wordpress/custom-post-types.md)
+* [Custom Post Types](wordpress/custom-taxonomies.md)
+* [Page Templates](wordpress/page-templates.md)
+* [Theme Structure](wordpress/theme-structure.md)
+
 ## Advanced Custom Fields (ACF)
 * [Flexible Content](acf/flexible-content.md)
 * [Repeaters](acf/repeaters.md)
@@ -32,22 +38,6 @@
 * [Change Style Language](customization/changing-style-language.md)
 * [Change Template Language](customization/changing-template-language.md)
 * [Working with Yoast](customization/yoast.md)
-
-## Features
-* [Introduction](features/introduction.md)
-* [Acf](#)
-* [AdminNotices](#)
-* [CleanHead](#)
-* [CleanRss](#)
-* [Components](#)
-* [CustomPostTypes](features/custom-post-types.md)
-* [Jquery](#)
-* [MimeTypes](#)
-* [Navigation](#)
-* [RemoveEditor](#)
-* [Templates](#)
-* [Timber](#)
-* [TinyMce](#)
 
 ## Utils
 * [Introduction](utils/introduction.md)
