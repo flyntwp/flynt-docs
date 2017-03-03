@@ -2,33 +2,36 @@
 
 ```
 flynt-theme/                     # → Root of the theme
-├── Components/                  # → All components live here
-│   ├── mainLayout/              # → Base layout component
-│   ├── mainTemplate/            # → Base template component
-├── Features/                    # → All features live here
-├── config/                      # → Autoloading for `src/` files
+├── Components/                  # → All components
+├── Features/                    # → All features
+├── config/                      # → WP/ACF Configuration
+│   ├── customPostTypes/         # → Configure custom post types
+│   ├── fieldGroups/             # → Configure ACF field groups
+│   ├── templates/               # → Page templates (JSON)
 ├── gulpfile.js/                 # → Gulp tasks and setup
-│   ├── tasks/                   # → Individual gulp-tasks, e.g. webpack, stylus setup
+│   ├── tasks/                   # → Individual gulp-tasks, e.g. webpack, stylus
 │   ├── config.js                # → Gulp config
 │   ├── index.js                 # → Load gulp tasks with config
 │   ├── webpack.config.js        # → Webpack config
 ├── lib/                         # → Hold utils and setup features
 │   ├── Utils/                   # → Small utility functions
-│   ├── Bootstrap.php            # → 
-│   ├── Init.php                 # → Theme setup; init features
-├── templates/                   # → Theme templates
+│   ├── Bootstrap.php            # → Run Flynt Bootstrap
+│   ├── Init.php                 # → Setup theme, register features
 ├── dist/                        # → Built theme files (never edit)
-├── functions.php                # → Run Flynt Bootstrap & init (never edit)
-├── index.php                    # → Never manually edit
 ├── node_modules/                # → Node.js packages (never edit)
-├── package.json                 # → Node.js dependencies and scripts
-├── screenshot.png               # → Theme screenshot for WP admin
+├── templates/                   # → Page templates (PHP)
+├── .env                         # → Configures dev environment
+├── .flynt.json                  # → Configures Flynt
+├── .stylintrc                   # → Define Stylus linting rules
+├── apple-touch-icon-180x180.png # → Apple touch icon
+├── bower.json                   # → Bower dependencies
 ├── composer.json                # → Composer dependencies
 ├── composer.lock                # → Composer lock file (never edit)
-├── bower.json                   # →
+├── favicon.png                  # → Favicon image
+├── functions.php                # → Set template directory and load lib/Init.php
+├── index.php                    # → Never manually edit
+├── package.json                 # → Node.js dependencies and scripts
+├── phpcs.ruleset.xml            # → Define PHP linting rules
+├── screenshot.png               # → Theme screenshot for WP admin
 ├── yarn.lock                    # → Yarn lock file (never edit)
-├── .env                         # →
-├── .flynt.json                  # →
-├── favicon.png                  # →
-├── apple-touch-icon-180x180.png # →
 ```

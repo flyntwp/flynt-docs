@@ -21,13 +21,15 @@ function initTheme() {
 
 ```
 
-Here we pass the `dir` - the folder in which the configuration files are located, and the `fileName` - the name of the configuration file that the feature will look for.
+Here we pass two options:
+- `dir` - the folder in which the configuration files are located
+- `fileName` - the name of the configuration file that the feature will look for.
 
 
 ## 2. Create a post type
-Each custom post type requires a separate folder within the `dir` defined above. Within this folder, it will look for a JSON file with the `fileName` also defined above.
+Each custom post type requires a separate folder in the defined `dir`. Within this folder, it will look for a JSON file with the specified `fileName` (`config.json`).
 
-As an example, create `config\customPostTypes\products\config.json`. Within `config.json`, you can now add the [configuration options exactly as specified by Wordpress](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters):
+As an example, create `config\customPostTypes\products\config.json`. Within `config.json`, add the [configuration options exactly as specified by Wordpress](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters):
 
 ```json
 {
@@ -47,7 +49,7 @@ As an example, create `config\customPostTypes\products\config.json`. Within `con
 }
 ```
 
-That's it! The post type will now be created.
+That's it! The post type is now created.
 
 ## 3. Add a README
 
