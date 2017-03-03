@@ -4,8 +4,8 @@ With Flynt, custom post types can be created using the [Custom Post Type feature
 
 With this feature, custom post types are created with JSON configuration files.
 
-## 1. Install the Feature
-To use it, download and place the feature into the `Features` folder and initialize it in the `initTheme` function in `lib/Init.php`:
+## 1. Install the [CustomPostType](https://github.com/bleech/wp-starter-theme/tree/master/Features/CustomPostTypes) Feature
+Download and place the feature into the `Features` folder and initialize it in the `initTheme` function in `lib/Init.php`:
 
 ```php
 <?php
