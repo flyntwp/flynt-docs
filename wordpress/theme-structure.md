@@ -16,7 +16,7 @@ flynt-theme/                     # → Root of the theme
 │   ├── webpack.config.js        # → Webpack config
 ├── lib/                         # → Hold utils and setup features
 │   ├── Utils/                   # → Small utility functions
-│   ├── Bootstrap.php            # → Run Flynt Bootstrap
+│   ├── Bootstrap.php            # → Flynt Bootstrap
 │   ├── Init.php                 # → Setup theme, register features
 ├── node_modules/                # → Node.js packages (never edit)
 ├── templates/                   # → Page templates (PHP)
