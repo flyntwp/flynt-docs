@@ -28,7 +28,7 @@ flynt-theme/                     # → Root of the theme
 ├── composer.json                # → Composer dependencies
 ├── composer.lock                # → Composer lock file (never edit)
 ├── functions.php                # → Set template directory and load lib/Init.php
-├── index.php                    # → Never manually edit
+├── index.php                    # → Theme entry point (never edit)
 ├── package.json                 # → Node.js dependencies and scripts
 ├── phpcs.ruleset.xml            # → Define PHP linting rules
 ├── screenshot.png               # → Theme screenshot for WP admin
