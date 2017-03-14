@@ -3,8 +3,9 @@
 ## Getting Started
 * [Quick Start](README.md)
 * [Requirements](requirements.md)
-* [Theme Structure](theme-structure.md)
-* [Build Your First Component](tutorial/first-component/hello-world.md)
+* [Features](features/introduction.md)
+* [Tutorial: Build Your First Component](tutorial/first-component/setup.md)
+  * [1. Hello World](tutorial/first-component/hello-world.md)
   * [2. Using ACF](tutorial/first-component/using-acf.md)
   * [3. Modifying Data](tutorial/first-component/modify-data.md)
   * [4. Adding Assets](tutorial/first-component/adding-assets.md)
@@ -21,6 +22,12 @@
 * [Functions](components/functions.md)
 * [View Templates](components/view-templates.md)
 
+## Wordpress
+* [Custom Post Types](wordpress/custom-post-types.md)
+* [Custom Taxonomies](wordpress/custom-taxonomies.md)
+* [Page Templates](wordpress/page-templates.md)
+* [Theme Structure](wordpress/theme-structure.md)
+
 ## Advanced Custom Fields (ACF)
 * [Flexible Content](acf/flexible-content.md)
 * [Repeaters](acf/repeaters.md)
@@ -32,9 +39,15 @@
 * [Change Template Language](customization/changing-template-language.md)
 * [Working with Yoast](customization/yoast.md)
 
-## Library
-* [Introduction](library/introduction.md)
-* [Custom Post Types](library/custom-post-types.md)
+## Utils
+* [Introduction](utils/introduction.md)
+* [ArrayHelpers](utils/array-helpers.md)
+* [Asset](utils/asset.md)
+* [DomNode](#)
+* [Feature](utils/feature.md)
+* [FileLoader](#)
+* [Log](utils/log.md)
+* [StringHelpers](utils/string-helpers.md)
 
 ## Core
 

@@ -1,7 +1,7 @@
-# 1. Building Your First Component
+# 1. Hello World
 
 <div class="alert alert-info">
-  <strong>Before you begin this tutorial, make sure you first follow the <a href="../setup.md">setup instructions</a> and have your local environment up and running.
+  <strong>Before you begin this tutorial, make sure you first follow the <a href="../../README.md">quick start guide</a> and have your local environment up and running.
   </strong>
 </div>
 
@@ -15,7 +15,7 @@
 </div>
 
 ## 1.1 Configuring Page Templates
-All template files in Flynt can be found under the theme root, in the `templates` directory. You can learn more about how Flynt handles page templates [here](../../theme-structure.md).
+All template files in Flynt can be found under the theme root, in the `templates` directory. You can learn more about how Flynt handles page templates [here](../../wordpress/page-templates.md).
 
 For this tutorial we will be using the default `template/page.php` template. This file contains only one line of code:
 
@@ -23,7 +23,7 @@ For this tutorial we will be using the default `template/page.php` template. Thi
 Flynt\echoHtmlFromConfigFile('default.json');
 ```
 
-<p><a href="https://github.com/bleech/wp-starter-plugin/blob/documentation/docs/api/Flynt.md#echogethtmlfromconfig" class="source-note">The source of this function can be found here in the Flynt Core plugin.</a></p>
+<p><a href="../../core/api/flynt.md#echogethtmlfromconfig" class="source-note">The source of this function can be found in the Flynt Core plugin.</a></p>
 
 For now, it is only important to know that our template config is actually loaded from `config/templates/default.json`.
 
@@ -32,39 +32,36 @@ Here we store our default page layout:
 ```json
 {
   "name": "MainLayout",
-  "dataFilter": "Flynt/DataFilters/WpBase",
   "areas": {
     "mainHeader": [
       {
-        "name": "MainNavigation",
-        "dataFilter": "Flynt/DataFilters/MainNavigation"
+        "name": "MainNavigation"
       }
     ],
     "mainTemplate": [
       {
-        "name": "Template",
-        "dataFilter": "Flynt/DataFilters/MainQuery/Single"
+        "name": "MainTemplate"
       }
     ]
   }
 }
 ```
 
-For a detailed look at how these template configurations work, [you can read more here](../theme-structure.md).
+For a detailed look at how these template configurations work, [you can read more here](../../core/api/build-construction-plan.md).
 
 ## 1.2 Creating your Component
-All components are located in the `Components` directory. Create a new folder in this directory with the name `PostSlider`.
+All components are located in the `Components` directory. Create a new folder in this directory with the name `SliderPosts`.
 
-Flynt uses [Twig](http://twig.sensiolabs.org/) in conjunction with [Timber](timber.github.io/timber/) for view templates. To add a template for your component, create `Components/PostSlider/index.twig`. Your folder structure will now be:
+Flynt uses [Twig](http://twig.sensiolabs.org/) in conjunction with [Timber](http://timber.github.io/timber/) for view templates. To add a template for your component, create `Components/SliderPosts/index.twig`. Your folder structure should now be:
 
 ```
 flynt-theme/
 └── Components/
-   └── PostSlider/
+   └── SliderPosts/
        └── index.twig
 ```
 
-Whilst the end goal is to make this component an interactive slider, for now we'll add some dummy data to our view template. Open `Components/PostSlider/index.twig` and enter the following:
+Since the end goal is to make this component an interactive slider, for now we'll add some dummy data to our view template. Open `Components/SliderPosts/index.twig` and enter the following:
 
 ```twig
 <div is="flynt-post-slider">
@@ -78,24 +75,22 @@ Done! Next we need to render the component to the page.
 
 ## 1.3 Rendering Your Component
 
-First we will create a new area for our Post Slider component.
+First we will create a new area for our SliderPosts component.
 
 Open `config/templates/default.json` and add a new area with the key `pageComponents`:
 
 ```json
 {
   "name": "MainLayout",
-  "dataFilter": "Flynt/DataFilters/WpBase",
   "areas": {
     ...
     "mainTemplate": [
       {
-        "name": "Template",
-        "dataFilter": "Flynt/DataFilters/MainQuery/Single",
+        "name": "MainTemplate",
         "areas": {
           "pageComponents": [
             {
-              "name": "PostSlider"
+              "name": "SliderPosts"
             }
           ]
         }
@@ -107,15 +102,15 @@ Open `config/templates/default.json` and add a new area with the key `pageCompon
 
 Now that we have registered the area we need to output it.
 
-Open the `Components/Template/index.twig` and replace `the_content()` with the `pageComponents` area:
+Open the `Components/MainTemplate/index.twig` and replace `the_content()` with the `pageComponents` area:
 
 ```twig
-<div is="wps-main-template">
-  <div class="page-wrapper" role="document">
-    <div class="main-header">
+<div is="flynt-main-template">
+  <div class="pageWrapper">
+    <div class="mainHeader">
       {{ area('mainHeader') }}
     </div>
-    <main class="main-content" role="main">
+    <main class="pageComponents">
       {{ area('pageComponents') }}
     </main>
   </div>

@@ -19,9 +19,9 @@ Rupture is a simple utility for working with media queries in stylus. It takes a
 
 Of course, as with everything else - you do not have to use this, but we strongly recommend it!
 
-## Do I have to use Custom Elements to write Javascript?
+## Do I have to use Custom Elements to write JavaScript?
 
-No, this is just our personal recommendation. You can author your Javascript however you wish!
+No, this is just our personal recommendation. You can author your JavaScript however you wish!
 
 ## Do I have to use Advanced Custom Fields (ACF)?
 

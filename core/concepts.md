@@ -39,11 +39,11 @@ From this configuration file, Flynt Core will then build a Construction Plan by 
 
   In order to add additional data or replace certain data retrieved by the `dataFilter`, `customData` can be added through the config. This will be merged with the existing component data.
 
-5. **Apply general filter `Flynt/modifyComponentData`.**
+5. **Apply general filter `Flynt/addComponentData`.**
 
   In the previous steps the component data was determined by values passed through the config. This filter is applied for every component. Every filter you add here will be applied to every component. This make it the designated place to add default data that you want to access in every component.
 
-6. **Apply component specific filter `Flynt/modifyComponentData?name={$componentName}`.**
+6. **Apply component specific filter `Flynt/addComponentData?name={$componentName}`.**
 
   This filter targets a specific component specified by the `componentName`. It can be used to do some default data manipulation that is needed for rendering the component. Since no data logic should be added to a template (except simple loops or control statements) every preparation, formating, etc. should be done here. This filter will usually be added in a components *function.php*.
 

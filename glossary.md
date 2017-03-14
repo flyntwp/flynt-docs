@@ -28,3 +28,6 @@ Since components are self-contained, areas provide a way to stack our building-b
 
   <p><a href="hello-world.md" class="btn btn-primary">Get started</a></p>
 </div>
+
+## Kebab case
+Lowercase with hyphens to separate words. For example: `my-variable`

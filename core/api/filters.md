@@ -88,10 +88,10 @@ class Defaults {
 Modify the config unsed to build the construction plan.
 
 Component specific filter: `Flynt/initComponentConfig?name={$config['name']}`
-## Flynt/modifyComponentData
+## Flynt/addComponentData
 Final point to modify the data of a component. Called after the data filters and adding custom data. This is the default place to do data manipulation and preparation before passing it to the render function.
 
-Component specific filter: `Flynt/modifyComponentData?name={$config['name']}`
+Component specific filter: `Flynt/addComponentData?name={$config['name']}`
 
 Arguments for callable:
 <dl>
@@ -107,7 +107,7 @@ Arguments for callable:
 
 Example:
 ```php
-add_filter('Flynt/modifyComponentData?name=PageHeader', function ($data, $parentData) {
+add_filter('Flynt/addComponentData?name=PageHeader', function ($data, $parentData) {
   if (!empty($parentData['post_thumbnail']) && array_key_exists('url', $parentData['post_thumbnail'])) {
     $data['image'] = $parentData['post_thumbnail']['url'];
   }
