@@ -2,11 +2,12 @@
 
 ```
 flynt-theme/                     # → Root of the theme
+├── Components/                  # → All components
 ├── config/                      # → WP/ACF Configuration
 │   ├── customPostTypes/         # → Configure custom post types
 │   ├── fieldGroups/             # → Configure ACF field groups
 │   ├── templates/               # → Page templates (JSON)
-├── Components/                  # → All components
+├── dist/                        # → Built theme files (never edit)
 ├── Features/                    # → All features
 ├── gulpfile.js/                 # → Gulp tasks and setup
 │   ├── tasks/                   # → Individual gulp-tasks, e.g. webpack, stylus
@@ -17,11 +18,11 @@ flynt-theme/                     # → Root of the theme
 │   ├── Utils/                   # → Small utility functions
 │   ├── Bootstrap.php            # → Run Flynt Bootstrap
 │   ├── Init.php                 # → Setup theme, register features
-├── dist/                        # → Built theme files (never edit)
 ├── node_modules/                # → Node.js packages (never edit)
 ├── templates/                   # → Page templates (PHP)
 ├── .env                         # → Configures dev environment
 ├── .flynt.json                  # → Configures Flynt
+├── .gitignore                   # → Files/Folders that will not be committed to Git.
 ├── .stylintrc                   # → Define Stylus linting rules
 ├── bower.json                   # → Bower dependencies
 ├── composer.json                # → Composer dependencies
@@ -31,7 +32,6 @@ flynt-theme/                     # → Root of the theme
 ├── package.json                 # → Node.js dependencies and scripts
 ├── phpcs.ruleset.xml            # → Define PHP linting rules
 ├── screenshot.png               # → Theme screenshot for WP admin
-├── yarn.lock                    # → Yarn lock file (never edit)
 ├── style.css                    # → Required WordPress theme style file.
-├── .gitignore                   # → Files/Folders that will not be committed to Git.
+├── yarn.lock                    # → Yarn lock file (never edit)
 ```
