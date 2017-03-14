@@ -4,7 +4,7 @@
 * [Quick Start](README.md)
 * [Requirements](requirements.md)
 * [Features](features/introduction.md)
-* [Tutorial: Build Your First Component](tutorial/first-component/hello-world.md)
+* [Tutorial: Build Your First Component](tutorial/first-component/setup.md)
   * [1. Hello World](tutorial/first-component/hello-world.md)
   * [2. Using ACF](tutorial/first-component/using-acf.md)
   * [3. Modifying Data](tutorial/first-component/modify-data.md)

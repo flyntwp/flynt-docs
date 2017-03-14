@@ -16,7 +16,7 @@
 </div>
 
 ## 2.1 Adding ACF Fields
-[Advanced Custom Fields (ACF)](http://advancedcustomfields.com) is a Wordpress plugin to make adding custom meta fields easy and intuitive, with a straight-forward API and seamless integration into the back-end of Wordpress. With Flynt, ACF is used to add user-editable fields to components.
+[Advanced Custom Fields (ACF)](https://advancedcustomfields.com) is a Wordpress plugin to make adding custom meta fields easy and intuitive, with a straight-forward API and seamless integration into the back-end of Wordpress. With Flynt, ACF is used to add user-editable fields to components.
 
 To get started, add a single ACF text field to the SliderPosts component.
 

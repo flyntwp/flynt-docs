@@ -11,3 +11,5 @@ Then use the [Flynt CLI](../../cli/README.md) to setup the project:
 ```
 flynt setup
 ```
+
+<!-- TODO: Add link / text about actually doing all of the required local setup steps. e.g. Set up MAMP -->
