@@ -23,7 +23,7 @@ For this tutorial we will be using the default `template/page.php` template. Thi
 Flynt\echoHtmlFromConfigFile('default.json');
 ```
 
-<p><a href="../../core/api/flynt.md#echogethtmlfromconfig" class="source-note">The source of this function can be found here in the Flynt Core plugin.</a></p>
+<p><a href="../../core/api/flynt.md#echogethtmlfromconfig" class="source-note">The source of this function can be found in the Flynt Core plugin.</a></p>
 
 For now, it is only important to know that our template config is actually loaded from `config/templates/default.json`.
 
@@ -50,18 +50,18 @@ Here we store our default page layout:
 For a detailed look at how these template configurations work, [you can read more here](../../core/api/build-construction-plan.md).
 
 ## 1.2 Creating your Component
-All components are located in the `Components` directory. Create a new folder in this directory with the name `PostSlider`.
+All components are located in the `Components` directory. Create a new folder in this directory with the name `SliderPosts`.
 
-Flynt uses [Twig](http://twig.sensiolabs.org/) in conjunction with [Timber](http://timber.github.io/timber/) for view templates. To add a template for your component, create `Components/PostSlider/index.twig`. Your folder structure should now be:
+Flynt uses [Twig](http://twig.sensiolabs.org/) in conjunction with [Timber](http://timber.github.io/timber/) for view templates. To add a template for your component, create `Components/SliderPosts/index.twig`. Your folder structure should now be:
 
 ```
 flynt-theme/
 └── Components/
-   └── PostSlider/
+   └── SliderPosts/
        └── index.twig
 ```
 
-Since the end goal is to make this component an interactive slider, for now we'll add some dummy data to our view template. Open `Components/PostSlider/index.twig` and enter the following:
+Since the end goal is to make this component an interactive slider, for now we'll add some dummy data to our view template. Open `Components/SliderPosts/index.twig` and enter the following:
 
 ```twig
 <div is="flynt-post-slider">
@@ -75,7 +75,7 @@ Done! Next we need to render the component to the page.
 
 ## 1.3 Rendering Your Component
 
-First we will create a new area for our PostSlider component.
+First we will create a new area for our SliderPosts component.
 
 Open `config/templates/default.json` and add a new area with the key `pageComponents`:
 
@@ -90,7 +90,7 @@ Open `config/templates/default.json` and add a new area with the key `pageCompon
         "areas": {
           "pageComponents": [
             {
-              "name": "PostSlider"
+              "name": "SliderPosts"
             }
           ]
         }
@@ -106,11 +106,11 @@ Open the `Components/MainTemplate/index.twig` and replace `the_content()` with t
 
 ```twig
 <div is="flynt-main-template">
-  <div class="pageWrapper" role="document">
+  <div class="pageWrapper">
     <div class="mainHeader">
       {{ area('mainHeader') }}
     </div>
-    <main class="pageComponents" role="main">
+    <main class="pageComponents">
       {{ area('pageComponents') }}
     </main>
   </div>

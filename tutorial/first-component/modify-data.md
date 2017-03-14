@@ -3,7 +3,7 @@
 <div class="alert">
   <h3>This tutorial covers:</h3>
   <ul>
-    <li><strong><a href="#31-using-addComponentData-and-functionsphp">Using <code>addComponentData</code> and <code>functions.php</code></strong></a></li>
+    <li><strong><a href="#31-using-addcomponentdata-and-functionsphp">Using <code>addComponentData</code> and <code>functions.php</code></strong></a></li>
   </ul>
 </div>
 
@@ -22,9 +22,9 @@ Our component is now functional, but looking at our existing view template, we a
 
 The ideal would be to make this text dynamic, but still let the editor insert the `postsPerPage` number where appropriate. Lets implement this!
 
-First, lets create a new field for the Post Slider component named `postsPerPageText`.
+First, lets create a new field for the SliderPosts component named `postsPerPageText`.
 
-Update `Components/PostSlider/fields.json` to match the following:
+Update `Components/SliderPosts/fields.json` to match the following:
 
 ```json
 {
@@ -68,13 +68,13 @@ Open the backend interface for your page and add the following content to the "P
 
 Now we'll take the value and replace the `$postsPerPage` string with the `postsPerPage` data we passed through our data filter.
 
-First create `Components/PostSlider/functions.php` and add the code below:
+First create `Components/SliderPosts/functions.php` and add the code below:
 
 ```php
   <?php
-  namespace Flynt\Components\PostSlider;
+  namespace Flynt\Components\SliderPosts;
 
-  add_filter('Flynt/addComponentData?name=PostSlider', function ($data) {
+  add_filter('Flynt/addComponentData?name=SliderPosts', function ($data) {
     $data['postsPerPageText'] = str_replace('$postsPerPage', $data['postsPerPage'], $data['postsPerPageText']);
     return $data;
   });
@@ -82,7 +82,7 @@ First create `Components/PostSlider/functions.php` and add the code below:
 
 It is important to note here that it is necessary to append `?name=` to the filter, passing the target component name as a parameter to our `addComponentData` filter.
 
-To finish up, update the view template `Components/PostSlider/index.twig` with the code below:
+To finish up, update the view template `Components/SliderPosts/index.twig` with the code below:
 
 ```twig
 <div is="flynt-post-slider">

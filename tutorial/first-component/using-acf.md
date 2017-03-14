@@ -18,9 +18,9 @@
 ## 2.1 Adding ACF Fields
 [Advanced Custom Fields (ACF)](http://advancedcustomfields.com) is a Wordpress plugin to make adding custom meta fields easy and intuitive, with a straight-forward API and seamless integration into the back-end of Wordpress. With Flynt, ACF is used to add user-editable fields to components.
 
-To get started, add a single ACF text field to the PostSlider component.
+To get started, add a single ACF text field to the SliderPosts component.
 
-Create `Components/PostSlider/fields.json` and add the code below:
+Create `Components/SliderPosts/fields.json` and add the code below:
 
 ```json
 {
@@ -40,7 +40,7 @@ The folder structure will now resemble the following:
 ```
 flynt-theme/
 └── Components/
-   └── PostSlider/
+   └── SliderPosts/
        └── index.twig
        └── fields.json
 ```
@@ -78,7 +78,7 @@ Open `config/fieldGroups/pageComponents.json` and replace the contents with the 
   "name": "pageComponents",
   "title": "Page Components",
   "fields": [
-    "Flynt/Components/PostSlider/Fields/Content"
+    "Flynt/Components/SliderPosts/Fields/Content"
   ],
   "location": [
     [
@@ -92,14 +92,14 @@ Open `config/fieldGroups/pageComponents.json` and replace the contents with the 
 }
 ```
 
-In the "fields" array, we specifically pull in the fields from our Post Slider component. If we also had more components, we could also pull these into our Page Components group. For example:
+In the "fields" array, we specifically pull in the fields from our SliderPosts component. If we also had more components, we could also pull these into our Page Components group. For example:
 
 ```json
 {
   "name": "pageComponents",
   "title": "Page Components",
   "fields": [
-    "Flynt/Components/PostSlider/Fields/Content",
+    "Flynt/Components/SliderPosts/Fields/Content",
     "Flynt/Components/ExampleComponent/Fields/Content",
     "Flynt/Components/AnotherComponent/Fields/Content"
   ]
@@ -123,7 +123,7 @@ Below this, we are also setting the location where the field group should be dis
 <a class="source-note source-note--info" href="https://www.advancedcustomfields.com/resources/custom-location-rules/">
 As with the field settings, we are writing our location rules using the same configuration options as Advanced Custom Fields. We strongly recommend reading more about these rules in the official ACF documentation.</a>
 
-That's it! Navigate to the backend of Wordpress and create a new page. At the bottom, you'll now see a section for your Post Slider component with a field labeled "Title".
+That's it! Navigate to the backend of Wordpress and create a new page. At the bottom, you'll now see a section for your SliderPosts component with a field labeled "Title".
 
 Add the text "Our Featured Posts" into the title field and save the page.
 
@@ -132,7 +132,7 @@ Next, we'll move on to displaying this content on the front-end.
 ## 2.3 Displaying Field Content
 We can now display the title in our front-end [Twig](twig.sensiolabs.org) template.
 
-Open `Components/PostSlider/index.twig` and update it with the following:
+Open `Components/SliderPosts/index.twig` and update it with the following:
 
 ```twig
 <div is="flynt-post-slider">
@@ -205,7 +205,7 @@ At this point it is important to understand how the Flynt Core plugin is passing
 ## 2.5 Taking our Component Further
 Now we want to pull the featured image from a list of posts selected by the user.
 
-Open `Components/PostSlider/fields.json` and add a post object field to the component:
+Open `Components/SliderPosts/fields.json` and add a post object field to the component:
 
 ```json
 {
@@ -233,7 +233,7 @@ To continue, create a few dummy posts and add a featured image to each one. You 
 
 Now open up your page in the backend and you will now see our new field, with the label "Posts". Select your dummy posts and save the page.
 
-In `Components/PostSlider/index.twig`, we can now loop through our posts and output the title and featured image for each one:
+In `Components/SliderPosts/index.twig`, we can now loop through our posts and output the title and featured image for each one:
 
 ```twig
 <div is="flynt-post-slider">

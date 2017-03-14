@@ -13,6 +13,14 @@
 
 Always alpha-ordering your styles provides a high-level rule for consistency.
 
+```stylus
+.exampleComponent
+  &-title
+    background-color: #000
+    color: #fff
+    text-decoration: underline
+```
+
 ## Styles should extend from their nearest [maintainableCSS 'module'](http://maintainablecss.com/chapters/modules/).
 
 ```html
@@ -46,8 +54,8 @@ Always alpha-ordering your styles provides a high-level rule for consistency.
   &-basket
     background-color: #fff
 
-  &-isEmpty
-    background-color: #eee
+    &-isEmpty
+      background-color: #eee
 ```
 
 ## Component variables can use the global variables, but should always include a fallback if it doesn't exist.
@@ -60,6 +68,17 @@ $gutterWidth = lookup('$global-layout-gutterWidth') || 15px
 ## Nest Media Queries
 
 Write nested media queries when it makes sense and doesn’t bloat the file or become unreadable.
+
+```stylus
+.exampleComponent
+  &-title
+    background-color: #000
+    color: #fff
+    text-decoration: underline
+
+    +below(500px)
+      color: #00ff00
+```
 
 ## Use [rupture's scale](https://github.com/jescalan/rupture) for writing media queries.
 

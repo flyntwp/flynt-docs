@@ -1,6 +1,6 @@
 # Features
 
-With Wordpress, it is easy to create one large functions.php file, crammed full of all the custom logic your theme may need. This is messy! In Flynt, we split each piece of functionality into smaller, self-contained **feature** bundles.
+With Wordpress, it is easy to create one large functions.php file, crammed full of all the custom logic your theme may need. This can get messy. In Flynt, we split each piece of functionality into smaller, self-contained **feature** bundles.
 
 In most cases, features add global hooks and filters that affect the project on a global level. With this in mind, each feature is built with "drag and drop" reusability in mind.
 
@@ -11,10 +11,10 @@ Flynt comes with a core set of ready to go features:
 Load & configure ACF fields and field groups.
 
 - **[AdminComponentPreview](https://github.com/bleech/wp-starter-theme/tree/master/Features/AdminComponentPreview)**<br>
-Show screenshots of components to users in the WP back-end.
+Show screenshots of components in the WP back-end, and on the WP admin bar.
 
 - **[AdminNotices](https://github.com/bleech/wp-starter-theme/tree/master/Features/AdminNotices)**<br>
-Enable an easy-to-use interface for displaying notices in the WP back-end.
+A wrapper around the WordPress admin notice functionality.
 
 - **[CleanHead](https://github.com/bleech/wp-starter-theme/tree/master/Features/CleanHead)**<br>
 Clean-up the WP head markup.
@@ -86,7 +86,7 @@ After each feature is registered, the `Flynt\registerFeature` action is fired:
 <?php
 add_action('registerFeature', function ($feature, $options, $dir) {
   // Do something after each feature is registered.
-});
+}, 10, 3);
 ```
 It is also possible to target a specific feature:
 
@@ -94,7 +94,7 @@ It is also possible to target a specific feature:
 <?php
 add_action('registerFeature?name=CustomPostTypes', function ($feature, $options, $dir) {
   // Do something when the custom post type feature is registered.
-});
+}, 10, 3);
 ```
 
 ## Creating Features
@@ -114,8 +114,10 @@ namespace Flynt\Features\ExampleFeature;
 
 Features should be easy to reuse and easy to understand. We strongly recommend adding a readme file for each feature you create. Include a short description of what the feature can do, and how to configure any options available.
 
+- TODO: Add/link example README template.
+
 ### Add Styles, Scripts, and Templates
-Features support the addition of styles and scripts. Stylus, CSS, and JS files will be compiled and built in exactly the same way as with components.
+Features support the addition of styles, scripts, and templates. All file types supported within components (Stylus, CSS, JS, Twig, and PHP files) will also be compiled and built in exactly the same way for features.
 
 ### Add ACF Fields
 Sometimes, a feature may need to add ACF fields to allow the user to configure the options from the back-end. Again, this works exactly as with components. Add `fields.json` to the feature, and then configure the ACF fields as required:

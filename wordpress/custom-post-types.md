@@ -29,11 +29,10 @@ Here we pass two options:
 ## 2. Create a post type
 Each custom post type requires a separate folder in the defined `dir`. Within this folder, it will look for a JSON file with the specified `fileName` (`config.json`).
 
-As an example, create `config\customPostTypes\products\config.json`. Within `config.json`, add the [configuration options exactly as specified by Wordpress](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters):
+As an example, create `config\customPostTypes\products\config.json`. Within `config.json`, add the [configuration options exactly as specified by WordPress](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters):
 
 ```json
 {
-  "name": "product",
   "label": "Product",
   "singular_label": "Product",
   "description": "The description of the post type.",

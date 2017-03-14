@@ -1,6 +1,6 @@
 # Introduction
 
-Files within `Lib/Utils` are small, single file utility classes.
+Files within `lib/Utils` are small, single file utility classes.
 
 ---
 

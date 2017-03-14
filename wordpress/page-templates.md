@@ -2,7 +2,7 @@
 
 All template files can be found under the theme root, in the `templates` directory.
 
-By default, the following standard Wordpress templates are included. These templates follow the normal [Wordpress Template Hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/), and work in exactly the same way:
+By default, the following standard WordPress templates are included. These templates follow the normal [WordPress Template Hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/), and work in exactly the same way:
 - `404.php`
 - `archive.php`
 - `home.php`

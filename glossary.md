@@ -30,4 +30,4 @@ Since components are self-contained, areas provide a way to stack our building-b
 </div>
 
 ## Kebap case
-Lowercase with hyphens to separate words.
+Lowercase with hyphens to separate words. For example: `my-variable`

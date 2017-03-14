@@ -2,12 +2,12 @@
 
 ```
 flynt-theme/                     # → Root of the theme
-├── Components/                  # → All components
-├── Features/                    # → All features
 ├── config/                      # → WP/ACF Configuration
 │   ├── customPostTypes/         # → Configure custom post types
 │   ├── fieldGroups/             # → Configure ACF field groups
 │   ├── templates/               # → Page templates (JSON)
+├── Components/                  # → All components
+├── Features/                    # → All features
 ├── gulpfile.js/                 # → Gulp tasks and setup
 │   ├── tasks/                   # → Individual gulp-tasks, e.g. webpack, stylus
 │   ├── config.js                # → Gulp config
@@ -23,15 +23,15 @@ flynt-theme/                     # → Root of the theme
 ├── .env                         # → Configures dev environment
 ├── .flynt.json                  # → Configures Flynt
 ├── .stylintrc                   # → Define Stylus linting rules
-├── apple-touch-icon-180x180.png # → Apple touch icon
 ├── bower.json                   # → Bower dependencies
 ├── composer.json                # → Composer dependencies
 ├── composer.lock                # → Composer lock file (never edit)
-├── favicon.png                  # → Favicon image
 ├── functions.php                # → Set template directory and load lib/Init.php
 ├── index.php                    # → Never manually edit
 ├── package.json                 # → Node.js dependencies and scripts
 ├── phpcs.ruleset.xml            # → Define PHP linting rules
 ├── screenshot.png               # → Theme screenshot for WP admin
 ├── yarn.lock                    # → Yarn lock file (never edit)
+├── style.css                    # → Required WordPress theme style file.
+├── .gitignore                   # → Files/Folders that will not be committed to Git.
 ```
