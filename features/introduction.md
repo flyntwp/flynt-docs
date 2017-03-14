@@ -69,12 +69,21 @@ There are only two steps to add a feature:
 2. Open `lib\Init.php`, and enable the feature using `add_theme_support` in the `initTheme` function. For example:
   ```php
   function initTheme() {
-    // enable "AdminNotices" feature
-    add_theme_support('flynt-admin-notices');
+    // enable "Timber Loader" feature
+    add_theme_support('flynt-timber-loader');
   }
   ```
 
 That's it. In this example, Flynt will now initialize `Features\AdminNotices\functions.php` on the `after_setup_theme` hook. [This hook is called during each page load, after the theme is initialized.](https://codex.wordpress.org/Plugin_API/Action_Reference/after_setup_theme)
+
+It is also possible to pass parameters to features in the `add_theme_support` function. For example:
+
+```php
+add_theme_support('flynt-acf', [
+  'FieldGroupComposer',
+  'OptionPages'
+]);
+```
 
 ## Hooking into Features
 
