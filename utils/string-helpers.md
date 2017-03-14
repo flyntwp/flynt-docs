@@ -11,4 +11,4 @@ Converts a camelCaseString to a kebap-cased-string (lowercase, hyphenated).
 Trims the given string to the specified length using [`wp_trim_words`](https://codex.wordpress.org/Function_Reference/wp_trim_words) and strips all tags with [`wp_strip_all_tags`](https://codex.wordpress.org/Function_Reference/wp_strip_all_tags). An elipsis (`...`) is appended if the text is trimmed.
 
 ## `StringHelpers::splitCamelCase($input)`
-TODO: Explain this function.
+<!-- TODO: Explain this function. -->
