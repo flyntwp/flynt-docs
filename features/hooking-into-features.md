@@ -1,4 +1,4 @@
-## Hooking into Features
+# Hooking into Features
 
 You may wish to run additional logic after a feature is registered. This is possible with the `Flynt\registerFeature` hook.
 

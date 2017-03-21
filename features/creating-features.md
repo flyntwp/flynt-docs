@@ -1,4 +1,4 @@
-## Creating Features
+# Creating Features
 
 ### Add `functions.php`
 
