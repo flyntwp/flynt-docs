@@ -1,1 +1,1 @@
-# Static Assets
+# Assets
