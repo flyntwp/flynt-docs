@@ -1,5 +1,7 @@
 # Frequently Asked Questions (FAQ)
 
+<!-- TODO: Remove most of these questions (remove negative 'do i have to' language) and add a prompt for readers to go ask us questions (We don't know what the genuine frequently asked questions are yet)  -->
+
 ## What's Timber?
 Timber combines the simple readability of the [Twig template engine](http://twig.sensiolabs.org/), and combines it with an object oriented, consistent approach to Wordpress posts, images, terms, users and more.
 

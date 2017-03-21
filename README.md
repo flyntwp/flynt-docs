@@ -3,26 +3,11 @@
 Flynt is a component based WordPress framework for development teams and their clients.
 
 
-## Quick Start
+## Philosophy
+<!-- TODO: Write this section. -->
 
-Install the Flynt CLI (using [npm](https://www.npmjs.com/)):
+## Ecosystem
+<!-- TODO: Write this section. -->
 
-```
-npm install bleech/flynt-cli -g
-```
-
-Then install yarn with Homebrew (macOS):
-
-```
-brew update
-brew install yarn
-```
-
-Not on macOS? [See the full installation options here.](https://yarnpkg.com/en/docs/install)
-
-
-Then run the setup command and follow the instructions:
-
-```
-flynt setup
-```
+## Resources / Next Steps
+<!-- TODO: Write this section. -->
