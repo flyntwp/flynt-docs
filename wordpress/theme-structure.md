@@ -1,5 +1,7 @@
 # Theme Structure
 
+The Flynt Theme uses the following structure:
+
 ```
 flynt-theme/                     # → Root of the theme
 ├── Components/                  # → All components
