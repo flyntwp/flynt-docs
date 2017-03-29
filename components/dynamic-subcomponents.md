@@ -1,6 +1,5 @@
 # Dynamic Sub-Components
 
-<!-- TODO: Test all of the code examples in this file. -->
 <!-- TODO: Test priority of filters < 999. -->
 
 The `Flynt/dynamicSubcomponents` filter allows a component to dynamically create new areas with components within them. Components can be added to the new area with exactly the same configuration options as with [Flynt page templates](../wordpress/page-templates.md). For example:
@@ -28,15 +27,16 @@ It is also possible to access the `$data` and `$parentData` of the component tha
 
 ```php
 <?php
-add_filter('Flynt/dynamicSubcomponents?name=FlexibleContent', function ($areas, $data, $parentData)
-{
+add_filter('Flynt/dynamicSubcomponents?name=FlexibleContent', function ($areas, $data, $parentData) {
     $fieldGroup = $data['fieldGroup'];
-    if (array_key_exists($fieldGroup, $parentData['post']->fields) && $parentData['post']->fields[$fieldGroup] !== false) {
+    if (array_key_exists($fieldGroup, $parentData['post']->fields) &&
+    $parentData['post']->fields[$fieldGroup] !== false
+    ) {
         $areas['flexibleContent'] = array_map(function ($field) use ($parentData) {
             return [
-                'name' => ucfirst($field['acf_fc_layout']),
-                'customData' => $field,
-                'parentData' => $parentData // overwrite parent data of child components
+            'name' => ucfirst($field['acf_fc_layout']),
+            'customData' => $field,
+            'parentData' => $parentData // overwrite parent data of child components
             ];
         }, $parentData['post']->fields[$data['fieldGroup']]);
     }

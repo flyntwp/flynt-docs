@@ -6,7 +6,7 @@ The style file should be named `style`, and be placed within the individual comp
 
 For example: `Components/ExampleComponent/style.styl` compiles to `dist/Components/ExampleComponent/style.css`
 
-**This will not automatically enqueue the styles in the front-end.** To do this, you must enqueue the files within the component's `functions.php` file. [Learn how to do this here](functions.md#enqueueing-assets).
+**This will not automatically enqueue the styles in the front-end.** To do this, you must enqueue the files within the component's `functions.php` file. [Learn how to do this here](functions.md#enqueueing-assets-and-dependencies).
 
 It is also possible to add support for other pre-processors with gulp. [See an example of how to switch to SASS here](../core/customization/changing-style-language.md).
 
@@ -39,7 +39,7 @@ If using Stylus, you will have access to the [Jeet grid system](http://jeet.gs/)
 [is='flynt-example-component']
   .exampleComponent
     &-container
-      center($max-width: 1400px, $pad: 15px)
+      center(1400px, 15px)
 
     &-content
       column(2/3)
