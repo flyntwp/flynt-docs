@@ -13,6 +13,7 @@ The `functions.php` file must always begin by defining the component namespace. 
 
 ```php
 <?php
+
 namespace Flynt\Components\ExampleComponentName;
 ```
 
@@ -21,6 +22,7 @@ The main `style.css` and `script.js` files of a component can be enqueued using 
 
 ```php
 <?php
+
 namespace Flynt\Components\ExampleComponentName;
 
 use Flynt\Features\Components\Component;
@@ -37,6 +39,7 @@ It is also possible to pass script and style dependencies to `enqueueAssets`.
 
 ```php
 <?php
+
 namespace Flynt\Components\ExampleComponentName;
 
 use Flynt\Features\Components\Component;
@@ -63,7 +66,7 @@ add_action('wp_enqueue_scripts', function ()
 });
 ```
 
-This will look for `dist/vendor/slick.js` and `dist/vendor/slick.css` and enqueue the files if found. **Never add files manually to the `dist` folder.** To compile dependencies into the `dist/vendor` folder, see the [section on copying vendor files here](/scripts.md#dependencies).
+This will look for `dist/vendor/slick.js` and `dist/vendor/slick.css` and enqueue the files if found. **Never add files manually to the `dist` folder.** To compile dependencies into the `dist/vendor` folder, see the [section on copying vendor files here](/scripts.md#add-dependencies).
 
 ## Using Filters
 The two main filters you will use inside `functions.php` are `Flynt/addComponentData` and `Flynt/dynamicSubcomponents`.
@@ -73,6 +76,7 @@ This filter can be used to add to or modify your component's data before it is p
 
 ```php
 <?php
+
 namespace Flynt\Components\ListLatestProducts;
 
 use Timber\Timber;
@@ -112,6 +116,7 @@ Features are always namespaced with `Flynt\Features`.
 
 ```php
 <?php
+
 namespace Flynt\Components\ExampleComponentName;
 
 use Flynt\Features\Components\Component;
@@ -121,6 +126,7 @@ Utils are always namespaced with `Flynt\Util`.
 
 ```php
 <?php
+
 namespace Flynt\Components\ExampleComponentName;
 
 use Flynt\Utils\Log;

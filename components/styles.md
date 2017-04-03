@@ -13,7 +13,7 @@ It is also possible to add support for other pre-processors with gulp. [See an e
 ## Flynt CSS Guidelines
 
 ### Scope
-Styles should always be scoped to the component using the `is` attribute.
+Styles should always be scoped to the component using the `is` attribute. [This attribute is also used in the component script file.](scripts.md#the-is-attribute)
 
 The styles for a component should include all the essential styling a component needs to function correctly on its own. This includes setting the box-sizing property for your component.
 
