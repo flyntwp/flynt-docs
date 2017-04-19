@@ -1,30 +1,17 @@
 # View Templates
 
-View templates are written in [Twig](http://twig.sensiolabs.org/), and support everything provided additionally by [Timber](http://timber.github.io/timber/).
+- TODO: add definition for view template that doesn't suck
+- flynt takes the view -> compiles to html and outputs
+- this is the V in MVC.
+- maybe put the index.twig example at the top of here, not at the bottom
+
+The rendered view of a component is the "view template". View templates are written in [Twig](http://twig.sensiolabs.org/), and support everything provided additionally by [Timber](http://timber.github.io/timber/).
 
 The template file for a component must be named `index.twig`.
 
-All data passed to a component is readily available in the view. This data includes all fields configured in the [`field.json` file](fields/README.md) of the component, plus any additional data passed with the [`addComponentData` filter](functions.md#flynt-addcomponentdata).
+All data passed to a component is readily available in the view. This data includes fields configured in the [`fields.json` file](fields/README.md) of the component, plus data passed with the [`addComponentData` filter](functions.md#flynt-addcomponentdata).
 
 For example, take a component named `exampleComponent`.
-
-In `fields.json`:
-
-```json
-{
-  "layout": {
-    "name": "exampleComponent",
-    "label": "Example Component",
-    "sub_fields": [
-      {
-        "name": "exampleField",
-        "label": "Example Field",
-        "type": "text"
-      }
-    ]
-  }
-}
-```
 
 In `functions.php`:
 
@@ -45,7 +32,6 @@ This data is now available in `index.twig`:
 ```twig
 <div is='flynt-example-component' class='flyntComponent'>
   <h1>{{ helloWorld }}</h1>
-  <p>{{ exampleField }}</p>
 </div>
 ```
 
