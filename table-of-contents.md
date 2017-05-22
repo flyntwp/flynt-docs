@@ -12,7 +12,7 @@
   * [5. Next Steps](tutorial/first-component/next-steps.md)
 
 ## Components
-* [Introduction](components/introduction.md)
+* [Introduction](components/README.md)
 * [Assets](components/assets.md)
 * [Custom Data](components/custom-data.md)
 * [Dynamic Sub-Components](components/dynamic-subcomponents.md)

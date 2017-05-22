@@ -14,7 +14,7 @@ Use the standard [American English](https://en.oxforddictionaries.com/spelling/b
 
 ## Avoid the First Person ("I" and "We")
 
-Where possible, do not use "I", or "we", and do not address the reader as "you". This tends to lead to more concise, clearer phrasing.
+Where possible, do not use "I", or "we". This tends to lead to more concise, clearer phrasing.
 
 ## Explain Abbreviations
 

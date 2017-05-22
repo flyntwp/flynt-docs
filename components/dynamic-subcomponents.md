@@ -1,53 +1,45 @@
-# Dynamic Subcomponents
+# Dynamic Sub-Components
 
-<!-- TODO: Read over and refactor / add to this file as appropriate. -->
-<!-- TODO: Test all of the code examples in this file. -->
 <!-- TODO: Test priority of filters < 999. -->
 
-## Example Usage of the dynamicSubcomponents filter
+The `Flynt/dynamicSubcomponents` filter allows a component to dynamically create new areas with components within them. Components can be added to the new area with exactly the same configuration options as with [Flynt page templates](../wordpress/page-templates.md). For example:
 
 ```php
 <?php
-add_filter("Flynt/dynamicSubcomponents?name=ParentComponent", function($areas, $data, $parentData) {
-  $areas['area51'] = [
-    [
-      'name' => 'ChildComponentName',
-      'dataFilter' => 'Flynt/DataFilters/ChildComponentName/foo',
-      'customData' => [
-        'test1' => 1
-      ]
-    ]
-  ];
-  return $areas;
+add_filter('Flynt/dynamicSubcomponents?name=ParentComponent', function ($areas)
+{
+    $areas['newAreaName'] = [
+        [
+            'name' => 'ChildComponentName',
+            'customData' => [
+              'exampleData' => 1
+            ]
+        ],
+        [
+            'name' => 'AnotherComponentName'
+        ]
+    ];
+    return $areas;
+}, 10);
+```
+
+It is also possible to access the `$data` and `$parentData` of the component that the filter is applied to. This is useful if, for example, you need to dynamically load components of an [ACF flexible content field group](fields/flexible-content.md):
+
+```php
+<?php
+add_filter('Flynt/dynamicSubcomponents?name=FlexibleContent', function ($areas, $data, $parentData) {
+    $fieldGroup = $data['fieldGroup'];
+    if (array_key_exists($fieldGroup, $parentData['post']->fields) &&
+    $parentData['post']->fields[$fieldGroup] !== false
+    ) {
+        $areas['flexibleContent'] = array_map(function ($field) use ($parentData) {
+            return [
+            'name' => ucfirst($field['acf_fc_layout']),
+            'customData' => $field,
+            'parentData' => $parentData // overwrite parent data of child components
+            ];
+        }, $parentData['post']->fields[$data['fieldGroup']]);
+    }
+    return $areas;
 }, 10, 3);
 ```
-
-### `Flynt/configPath`
-Use this filter to set the path to your desired config file. Accepts up to two arguments: `$filePath` and `$fileName` including ending. Defaults to `{theme-folder}/config/{$fileName}`
-
-Example:
-```php
-<?php
-add_filter('Flynt/configPath', function($filePath, $fileName) {
-  return get_template_directory() . '/someConfigFolder/' . $fileName;
-}, 10, 2);
-```
-
-The original filter is overwritten as long as the filter priority is < 999.
-
-### `Flynt/configFileLoader`
-Use this filter to define your own custom config loading mechanism. Accepts up to three arguments: `$configArray`, `$configFileName`, `$configFilePath`. By default it runs a `json_decode` on the expected json file and returns the resulting array.
-
-Example for loading `.yaml` files instead:
-```php
-<?php
-add_filter('Flynt/configFileLoader', function ($configArray, $configFileName, $configFilePath) {
-  return yaml_parse_file($configFilePath);
-}, 10, 3);
-```
-
-The original filter is overwritten as long as the filter priority is < 999.
-
----
-
-**[See a practical application of this in our guide to using the Flexible Content field type](flexible-content.md).**
