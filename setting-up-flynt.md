@@ -2,7 +2,9 @@
 
 ## Requirements
 
-Before you can get started with Flynt, there are some requirements that need to be met on your local machine. The following tools and versions are required for Flynt to work correctly. Other versions than the ones listed here are not explicitly tested and may or may not work with Flynt.
+Before you can get started with Flynt, there are some requirements that need to be met on your local machine. To make things easier you can use tools such as [Trellis](https://roots.io/trellis/) or [Scotchbox](https://box.scotch.io/) and skip directly to [Creating a Flynt project](#creating-a-flynt-project). If you want to set up your environment manually, keep reading.
+
+The following tools and versions are required for Flynt to work correctly. Other versions than the ones listed here are not explicitly tested and may or may not work with Flynt.
 
 ### Command Line
 
@@ -25,16 +27,11 @@ These tools must be available in your system's PATH environment.
 | [PHP](http://php.net/)          | >= 5.6  |
 | [MySQL](https://www.mysql.com/) | >= 5.6  |
 
-Additionally, a tool for managing your virtual host setup (e.g. [Mamp Pro](https://www.mamp.info/en/mamp-pro/)) is recommended.
+Additionally, you will need a way to manage your virtual host setup. This can be done either manually via a hosts file or with tools like [Mamp Pro](https://www.mamp.info/en/mamp-pro/).
 
-## Installation
+## Creating a Flynt project
 
-We recommend using one of the tools below to install the requirements listed above:
-
-- [Trellis](https://roots.io/trellis/)
-- [Scotchbox](https://box.scotch.io/)
-
-As soon as you have your environment set up, follow the steps below to install Flynt.
+As soon as you have your environment set up, follow the steps below to create a new Flynt project.
 
 1. Using the command line, install the Flynt CLI:
   ```
@@ -47,6 +44,8 @@ As soon as you have your environment set up, follow the steps below to install F
   ```
 
 3. Set up the virtual host provided during step 2 and you're good to go!
+
+
 
 <div class="alert alert-info">
   <strong>Questions?</strong>
