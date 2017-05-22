@@ -2,7 +2,7 @@
 
 ## Getting Started
 * [What is Flynt?](README.md)
-* [Installation & Requirements](requirements.md)
+* [Setting up Flynt](setting-up-flynt.md)
 * [Theme Structure](wordpress/theme-structure.md)
 * [Tutorial: Build Your First Component](tutorial/first-component/setup.md)
   * [1. Hello World](tutorial/first-component/hello-world.md)
