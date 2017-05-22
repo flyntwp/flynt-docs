@@ -45,7 +45,7 @@ As soon as you have your environment set up, follow the steps below to create a 
 
 3. Set up the virtual host provided during step 2 and you're good to go!
 
-
+---
 
 <div class="alert alert-info">
   <strong>Questions?</strong>
