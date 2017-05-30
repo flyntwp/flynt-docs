@@ -3,7 +3,7 @@ title: Custom Data
 weight: 32
 menu:
   main:
-    parent: Components
+    parent: components
     weight: 32
 ---
 

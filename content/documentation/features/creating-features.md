@@ -7,7 +7,7 @@ menu:
     weight: 42
 ---
 
-## Add `functions.php`
+## Add functions.php
 
 This is the only file a feature requires. The only additional requirement is to add the `Flynt` namespace:
 
@@ -18,7 +18,7 @@ namespace Flynt\Features\ExampleFeature;
 // Add feature functionality here!
 ```
 
-## Add a `README.md`
+## Add a README.md
 
 Features should be easy to reuse and easy to understand. We strongly recommend adding a readme file for each feature you create. Include a short description of what the feature can do, and how to configure any options available.
 

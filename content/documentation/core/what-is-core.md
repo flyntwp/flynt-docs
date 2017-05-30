@@ -1,15 +1,13 @@
 ---
-title: Quick Start
+title: What is the Core Plugin?
 weight: 70
 aliases:
   - /documentation/core/
 menu:
   main:
-    parent: Core
+    parent: core
     weight: 70
 ---
-
-## What is Flynt Core?
 
 The Flynt Core plugin is the basic building block of the Flynt Framework. Flynt Core offers a small public interface in combination with a few WordPress hooks to achieve the main principles and ideas behind the framework.
 

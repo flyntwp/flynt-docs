@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: What is a Feature?
 weight: 40
 aliases:
   - /documentation/features/

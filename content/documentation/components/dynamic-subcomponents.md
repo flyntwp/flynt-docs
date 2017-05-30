@@ -3,7 +3,7 @@ title: Dynamic Sub-Components
 weight: 33
 menu:
   main:
-    parent: Components
+    parent: components
     weight: 33
 ---
 

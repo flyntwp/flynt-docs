@@ -3,7 +3,7 @@ title: API
 weight: 73
 menu:
   main:
-    parent: Core
+    parent: core
     weight: 73
 ---
 

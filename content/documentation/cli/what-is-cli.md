@@ -1,5 +1,6 @@
 ---
-title: Introduction
+title: What is the CLI?
+draft: true
 weight: 80
 aliases:
   - /documentation/cli/
@@ -9,8 +10,6 @@ menu:
     identifier: cli-introduction
     weight: 80
 ---
-
-## What is the Flynt CLI?
 
 Flynt CLI makes working with Flynt simple and quick. It contains commands that cover setting up Wordpress, installing the theme, synchronizing databases, and handling deployment.
 

@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: What is a Util?
 weight: 50
 aliases:
   - /documentation/utils/

@@ -1,12 +1,10 @@
 ---
 title: Custom Post Types
-weight: 50
-aliases:
-  - /documentation/wordpress/
+weight: 51
 menu:
   main:
-    parent: WordPress
-    weight: 50
+    parent: configuration
+    weight: 51
 ---
 
 With Flynt, custom post types can be created using the [Custom Post Type feature](https://github.com/bleech/wp-starter-theme/tree/master/Features/CustomPostTypes).

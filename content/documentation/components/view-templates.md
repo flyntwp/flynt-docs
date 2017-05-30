@@ -3,7 +3,7 @@ title: View Templates
 weight: 38
 menu:
   main:
-    parent: Components
+    parent: components
     weight: 38
 ---
 
