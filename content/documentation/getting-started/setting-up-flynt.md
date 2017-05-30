@@ -9,7 +9,7 @@ menu:
 
 ## Requirements
 
-Before you can get started with Flynt, there are some requirements that need to be met on your local machine. To make things easier you can use tools such as [Trellis](https://roots.io/trellis/) or [Scotchbox](https://box.scotch.io/) and skip directly to [Creating a Flynt project](#creating-a-flynt-project). If you want to set up your environment manually, keep reading.
+Before you can get started with Flynt, there are some requirements that need to be met on your local machine. To make things easier you can use tools such as [Trellis](https://roots.io/trellis/) or [Scotchbox](https://box.scotch.io/) and skip directly to [Creating a Flynt project](/documentation/getting-started/setting-up-flynt/#creating-a-flynt-project). If you want to set up your environment manually, keep reading.
 
 The following tools and versions are required for Flynt to work correctly. Other versions than the ones listed here are not explicitly tested and may or may not work with Flynt.
 
@@ -52,10 +52,11 @@ As soon as you have your environment set up, follow the steps below to create a 
 
 3. Set up the virtual host provided during step 2 and you're good to go!
 
----
-
 <div class="alert alert-info">
-  <strong>Questions?</strong>
-  
-  <p>If you are stuck or having issues setting Flynt up, feel free to check the <a href="faq.md">FAQ</a> or <a href="https://github.com/flyntwp/flynt-theme/issues" target="_blank">Github Issues</a> for further assistance.</p>
+  <h2>Need help?</h2>
+  <p>If you are stuck or having issues setting Flynt up, leave an issue on Github for further assistance:</p>
+  <ul>
+    <li><a href="https://github.com/flyntwp/flynt-core/issues">Github - Core Plugin Issues</a></li>
+    <li><a href="https://github.com/flyntwp/flynt-starter-theme/issues">Github - Starter Theme Issues</a></li>
+  </ul>
 </div>

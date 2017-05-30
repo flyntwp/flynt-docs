@@ -2,7 +2,7 @@
 title: Functions
 menu:
   main:
-    parent: Components
+    parent: components
     weight: 35
 ---
 

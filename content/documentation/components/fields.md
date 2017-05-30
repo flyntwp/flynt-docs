@@ -3,7 +3,7 @@ title: Fields
 weight: 34
 menu:
   main:
-    parent: Components
+    parent: components
     weight: 34
 ---
 

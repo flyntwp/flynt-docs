@@ -3,7 +3,7 @@ title: Customization
 weight: 72
 menu:
   main:
-    parent: Core
+    parent: core
     weight: 72
 ---
 

@@ -3,7 +3,7 @@ title: "Assets"
 weight: 31
 menu:
   main:
-    parent: Components
+    parent: components
     weight: 31
 ---
 

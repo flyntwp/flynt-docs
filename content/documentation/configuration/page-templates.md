@@ -1,15 +1,18 @@
 ---
 title: Page Templates
-weight: 52
+weight: 50
+aliases:
+  - /documentation/configuration/
 menu:
   main:
-    parent: WordPress
-    weight: 52
+    parent: configuration
+    weight: 50
 ---
 
 All template files can be found under the theme root, in the `templates` directory.
 
 By default, the following standard WordPress templates are included. These templates follow the normal [WordPress Template Hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/), and work in exactly the same way:
+
 - `404.php`
 - `archive.php`
 - `home.php`

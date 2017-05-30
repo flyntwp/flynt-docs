@@ -4,7 +4,7 @@ weight: 39
 draft: true
 menu:
   main:
-    parent: Components
+    parent: components
     name: Best Practices
     weight: 39
 ---
