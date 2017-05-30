@@ -2,14 +2,14 @@
   "name": "flynt-documentation",
   "version": "0.1.0",
   "description": "Source for the [Flynt Framework documentation](https://docs.flyntwp.com).",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "del": "^2.2.2",
     "directory-tree": "^1.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-batch": "^1.0.5",
     "gulp-changed": "^3.1.0",
     "gulp-clean-css": "^3.4.0",
     "gulp-concat": "^2.6.0",

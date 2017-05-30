@@ -3,6 +3,7 @@ const fs = require('fs')
 const gulp = require('gulp')
 const path = require('path')
 const watch = require('gulp-watch')
+const batch = require('gulp-batch')
 
 const extensionMappings = {
   // '.sass': '.css' // TODO: add this after sass concatenation is removed
@@ -41,7 +42,11 @@ module.exports = function (config) {
     watchAndDelete(config.copy, function () { gulp.start('copy') }, config.dest)
     watch(config.watch.sass, function () { gulp.start('sass') })
     watch(config.uglify, function () { gulp.start('uglify') })
-    watch(config.watch.hugo, function () { gulp.start('hugo') })
+    watch(config.watch.hugo, batch({timeout: 300}, function (events, watchCb) {
+      events.on('data', function () {
+        gulp.start('hugo')
+      }).on('end', watchCb)
+    }))
     watch(config.watch.browserSync).
     pipe(browserSync.stream())
     cb()
