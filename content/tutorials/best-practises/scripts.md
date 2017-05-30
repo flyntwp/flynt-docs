@@ -3,8 +3,8 @@ title: "Scripts"
 weight: 21
 menu:
   main:
-    parent: Best Practises
-    identifier: best-practises-scripts
+    parent: Best Practices
+    identifier: best-practices-scripts
     weight: 21
 ---
 

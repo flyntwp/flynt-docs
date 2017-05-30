@@ -25,7 +25,7 @@ Developing websites can be a repetitive process. Flynt is a sustainable approach
 
 The Flynt Framework consists of a collection of tools:
 
-- **[Flynt Starter Theme:](https://github.com/flyntwp/flynt-starter-theme)** The official WordPress starter theme for building Flynt projects with all of our [best practises](/tutorials/best-practises/).
+- **[Flynt Starter Theme:](https://github.com/flyntwp/flynt-starter-theme)** The official WordPress starter theme for building Flynt projects with all of our [best practices](/tutorials/best-practices/).
 - **[Flynt Core Plugin:](https://github.com/flyntwp/flynt-core)** The core building block powering the Flynt Framework.
 - **[Flynt Yeoman Generator:](https://www.npmjs.com/package/generator-flynt)** A generator for quickly scaffolding Flynt components.
 - **[ACF Field Group Composer:](https://github.com/flyntwp/acf-field-group-composer)** A configuration builder for Advanced Custom Fields field groups.

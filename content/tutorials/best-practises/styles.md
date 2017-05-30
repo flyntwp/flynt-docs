@@ -3,8 +3,8 @@ title: "Styles"
 weight: 21
 menu:
   main:
-    parent: Best Practises
-    identifier: best-practises-styles
+    parent: Best Practices
+    identifier: best-practices-styles
     weight: 21
 ---
 
