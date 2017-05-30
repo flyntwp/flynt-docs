@@ -1,0 +1,44 @@
+{
+  "name": "flynt-documentation",
+  "version": "0.1.0",
+  "description": "Source for the [Flynt Framework documentation](https://docs.flyntwp.com).",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "del": "^2.2.2",
+    "directory-tree": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-changed": "^3.1.0",
+    "gulp-clean-css": "^3.4.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.8",
+    "gulp-shell": "^0.5.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
+    "hugo-lunr": "0.0.4",
+    "lunr": "^0.7.1",
+    "pump": "^1.0.2",
+    "remove-markdown": "^0.1.0",
+    "require-dir": "^0.3.1",
+    "run-sequence": "^1.2.2",
+    "streamqueue": "^1.1.1"
+  },
+  "scripts": {
+    "buildIndex": "hugo-lunr -o static/lunr.json",
+    "build": "gulp build",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyntwp/flynt-documentation.git"
+  },
+  "author": "bleech GmbH <hello@bleech.de> (https://bleech.de/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flyntwp/flynt-documentation/issues"
+  },
+  "homepage": "https://github.com/flyntwp/flynt-documentation#readme"
+}

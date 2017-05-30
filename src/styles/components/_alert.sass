@@ -1,0 +1,63 @@
+.alert
+  background-color: $color-light-grey
+  padding: 20px
+
+  &:first-child
+    margin-top: 30px
+
+  p
+    &:first-child
+      margin-top: 0
+
+  h2,
+  h3
+    margin: 0 0 10px
+
+  h2
+    padding-top: 0
+
+  ul,
+  ol
+    margin: 0
+    padding-left: 20px
+
+  p:last-of-type
+    margin-bottom: 0
+
+  &.alert-info
+    background: $color-primary
+    border-color: $color-tertiary
+    color: $color-white
+
+    p
+      color: $color-white
+
+    pre,
+    code
+      background: $alert-dark
+      padding: 0 4px
+
+  &.alert-info a
+    color: $color-white
+    text-decoration: underline
+
+  &.alert-info a:hover
+    color: $color-white
+
+  &.alert-steps
+    border: 3px solid #ddd
+    margin-top: 40px
+    padding: 30px
+
+  &.alert-list
+    padding: 0
+
+    ul
+      list-style: none
+      padding: 0
+
+    li
+      padding: 15px 20px
+
+      &:nth-child(even)
+        background: darken($color-light-grey, 3%)

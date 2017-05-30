@@ -1,0 +1,116 @@
+baseurl = "http://localhost:1313/"
+languageCode = "en-us"
+title = "Flynt Framework"
+metadataformat = "yaml"
+canonifyurls = true
+
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+
+[params]
+  # General information
+  author = "bleech GmbH"
+  description = "The component based WordPress framework for development teams and their clients."
+  copyright = "Released under the MIT license"
+
+  # Repository
+  provider = "GitHub"
+  repo_url = "https://github.com/flyntwp/flynt-starter-theme"
+
+  version = "0.1.0"
+  logo = "images/logo.jpeg"
+  favicon = "images/favicon.ico"
+
+  permalink = "#"
+
+  # Custom assets
+  custom_css  = []
+  custom_js   = []
+
+  # Syntax highlighting theme
+  highlight_css  = ""
+
+  [params.palette]
+    primary = "teal"
+    accent  = "blue-grey"
+
+    [params.font]
+      text = "Roboto"
+      code = "Roboto Mono"
+
+[params.social]
+  twitter = "flyntwp"
+  # github  = "flyntwp"
+  # email   = "flynt@bleech.de"
+
+[blackfriday]
+  smartypants	= true
+  fractions = true
+  smartDashes = true
+  plainIDAnchors = true
+
+# Top Menu Items
+[[menu.main]]
+  name   = "Documentation"
+  url    = "/documentation/getting-started/what-is-flynt/"
+  weight = 20
+
+[[menu.main]]
+  name   = "Tutorials"
+  url    = "/tutorials/building-your-first-component/setup/"
+  weight = 30
+
+[[menu.main]]
+  name   = "Resources"
+  url    = "/resources/faq/"
+  weight = 40
+
+# Side Menu Items, Parent should match the identifier of the Top Menu Item
+
+[[menu.main]]
+  name   = "Getting Started"
+  url    = "/documentation/getting-started/"
+  parent = "Documentation"
+  weight = 10
+
+[[menu.main]]
+  name   = "Components"
+  url    = "/documentation/components/"
+  parent = "Documentation"
+  weight = 20
+
+[[menu.main]]
+  name   = "Features"
+  url    = "/documentation/features/"
+  parent = "Documentation"
+  weight = 30
+
+[[menu.main]]
+  name   = "WordPress"
+  url    = "/documentation/wordpress/"
+  parent = "Documentation"
+  weight = 40
+
+[[menu.main]]
+  name   = "Utils"
+  url    = "/documentation/utils/"
+  parent = "Documentation"
+  weight = 50
+
+[[menu.main]]
+  name   = "Core"
+  url    = "/documentation/core/"
+  parent = "Documentation"
+  weight = 60
+
+[[menu.main]]
+  name   = "CLI"
+  url    = "/documentation/cli/"
+  parent = "Documentation"
+  weight = 70
+
+[[menu.main]]
+  name   = "Building your first Component"
+  url    = "/tutorials/building-your-first-component/"
+  parent = "Tutorials"
+  weight = 10
