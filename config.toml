@@ -16,6 +16,7 @@ googleAnalytics = ""
   # Repository
   provider = "GitHub"
   repo_url = "https://github.com/flyntwp/flynt-starter-theme"
+  organisation_url = "https://github.com/flyntwp"
 
   version = "0.1.0"
   logo = "images/logo.jpeg"
@@ -40,6 +41,7 @@ googleAnalytics = ""
 
 [params.social]
   twitter = "flyntwp"
+  facebook = "flyntwp"
   # github  = "flyntwp"
   # email   = "flynt@bleech.de"
 
@@ -57,7 +59,7 @@ googleAnalytics = ""
 
 [[menu.main]]
   name   = "Tutorials"
-  url    = "/tutorials/building-your-first-component/setup/"
+  url    = "/tutorials/build-your-first-component/setup/"
   weight = 30
 
 [[menu.main]]
@@ -107,8 +109,8 @@ googleAnalytics = ""
   weight = 60
 
 [[menu.main]]
-  name   = "Building your first Component"
-  url    = "/tutorials/building-your-first-component/"
+  name   = "Build your First Component"
+  url    = "/tutorials/build-your-first-component/"
   parent = "Tutorials"
   weight = 10
 
