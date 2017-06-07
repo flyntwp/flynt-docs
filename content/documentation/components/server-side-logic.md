@@ -25,7 +25,7 @@ namespace Flynt\Components\ExampleComponentName;
 ```
 
 ## Enqueueing Assets and Dependencies
-The main `style.css` and `script.js` files of a component can be enqueued using the [Flynt `Component` feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/Components) within the `wp_enqueue_scripts` action.
+The main `style.css` and `script.js` files of a component can be enqueued using the [Flynt Component feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/Components) within the `wp_enqueue_scripts` action.
 
 ```php
 <?php
@@ -40,9 +40,9 @@ add_action('wp_enqueue_scripts', function ()
 });
 ```
 
-This will enqueue `Components/ExampleComponentName/style.css` and `Components/ExampleComponentName/script.js`.
+This will enqueue `Components/ExampleComponentName/style.css` and `Components/ExampleComponentName/script.js`, if they are found.
 
-It is also possible to pass script and style dependencies to `enqueueAssets`.
+It is also possible to pass script and style dependencies to `enqueueAssets`. For example:
 
 ```php
 <?php
@@ -73,7 +73,7 @@ add_action('wp_enqueue_scripts', function ()
 });
 ```
 
-This will look for `dist/vendor/slick.js` and `dist/vendor/slick.css` and enqueue the files if found. **Never add files manually to the `dist` folder.** To compile dependencies into the `dist/vendor` folder, see the [section on copying vendor files here](/scripts.md#add-dependencies).
+This will look for `dist/vendor/slick.js` and `dist/vendor/slick.css` and enqueue the files if found. **Never add files manually to the `dist` folder.** To compile dependencies into the `dist/vendor` folder, see the [section on copying vendor files here](/documentation/components/client-side-scripts/#add-third-party-dependencies).
 
 ## Using Filters
 The two main filters you will use inside `functions.php` are `Flynt/addComponentData` and `Flynt/dynamicSubcomponents`.
@@ -90,11 +90,11 @@ use Timber\Timber;
 
 add_filter('Flynt/addComponentData?name=ListLatestProducts', function ($data)
 {
-  $data['products'] = Timber::get_posts([
-      'post_type' => 'product',
-      'posts_per_page' => '5'
-  ]);
-  return $data;
+    $data['products'] = Timber::get_posts([
+        'post_type' => 'product',
+        'posts_per_page' => '5'
+    ]);
+    return $data;
 });
 ```
 
@@ -113,7 +113,47 @@ This data is then available in the view template for `ListLatestProducts`.
 ```
 
 ### `Flynt/dynamicSubcomponents`
-With this filter, it is possible to dynamically add additional areas and components within your parent component. To learn how to use this in detail, [go to the section on dynamicSubcomponents](/dynamic-subcomponents.md).
+This filter allows a component to dynamically create new areas with components within them. Components can be added to the new area with exactly the same configuration options as with [Flynt page templates](/documentation/configuration/page-templates). For example:
+
+```php
+<?php
+add_filter('Flynt/dynamicSubcomponents?name=ParentComponent', function ($areas)
+{
+    $areas['newAreaName'] = [
+        [
+            'name' => 'ChildComponentName',
+            'customData' => [
+              'exampleData' => 1
+            ]
+        ],
+        [
+            'name' => 'AnotherComponentName'
+        ]
+    ];
+    return $areas;
+}, 10);
+```
+
+It is also possible to access the `$data` and `$parentData` of the component that the filter is applied to. This is useful if, for example, you need to dynamically load components of an ACF flexible content field group:
+
+```php
+<?php
+add_filter('Flynt/dynamicSubcomponents?name=FlexibleContent', function ($areas, $data, $parentData) {
+    $fieldGroup = $data['fieldGroup'];
+    if (array_key_exists($fieldGroup, $parentData['post']->fields) &&
+    $parentData['post']->fields[$fieldGroup] !== false
+    ) {
+        $areas['flexibleContent'] = array_map(function ($field) use ($parentData) {
+            return [
+            'name' => ucfirst($field['acf_fc_layout']),
+            'customData' => $field,
+            'parentData' => $parentData // overwrite parent data of child components
+            ];
+        }, $parentData['post']->fields[$data['fieldGroup']]);
+    }
+    return $areas;
+}, 10, 3);
+```
 
 ## Using Features and Utils
 
