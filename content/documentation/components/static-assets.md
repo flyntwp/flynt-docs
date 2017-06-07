@@ -59,8 +59,8 @@ In the `index.twig` view template, the `downloadIcon` variable can then be used:
 </div>
 ```
 
-## Using Static Assets in CSS
-To use a static asset in CSS, the path to the file must be included relative to the root of the theme. For example:
+## Using Static Assets in Styles
+To use static assets in style files, the path to the file must be included relative to the root of the theme.  For example:
 
 ```
 ├── flynt-starter-theme
