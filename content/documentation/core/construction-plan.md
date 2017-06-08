@@ -55,7 +55,7 @@ The construction plan contains all the information needed to be rendered. This r
    The recursive rendering starts by traversing down the component's areas rendering each component and joining the components' rendering output to one HTML string for each area.
 
 2. **Apply general filter `Flynt/renderComponent`**
-   This filter is called for every component. This is the designated place to define general rendering rules like e.g. integrating a template engine.
+   This filter is called for every component. This is the designated place to define general rendering rules e.g. integrating a template engine.
 
 3. **Apply the component specific filter `Flynt/renderComponent?name={$componentName}`**
    This filter can be used to target component specific rendering.
