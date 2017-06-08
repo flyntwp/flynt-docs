@@ -28,7 +28,7 @@ To install via composer, run:
 composer require flyntwp/flynt-core
 ```
 
-Activate the plugin in the WordPress back-end and you're good to go.
+Activate the plugin in the WordPress back end and you're good to go.
 
 ## Usage
 
