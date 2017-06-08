@@ -9,22 +9,43 @@ menu:
     weight: 70
 ---
 
-The Flynt Core plugin is the basic building block of the Flynt Framework. Flynt Core offers a small public interface in combination with a few WordPress hooks to achieve the main principles and ideas behind the framework.
+The [Flynt Core WordPress plugin](https://github.com/flyntwp/flynt-core) is the main building block of the Flynt Framework. It provides a small public interface, combined with several WordPress hooks, to achieve the main principles of the framework.
 
-## Getting Started
+This plugin essentially functions as a HTML generator with two key steps:
 
-Getting started with the Flynt Core plugin is a simple two step process:
+1. Given a minimal configuration, the Flynt Core plugin creates a hierarchical plan for how the site will be constructed ([the Construction Plan](/documentation/core/construction-plan)).
+2. [The Construction Plan](/documentation/core/construction-plan) is parsed and rendered into HTML.
 
-1. Install the Flynt Core plugin into the standard Wordpress folder.
-2. Activate the plugin in the Wordpress Administration "Plugins" panel.
+Each configuration passed to the plugin represents a single [component](/documentation/components/). This configuration can also contain additional, nested component configurations, which are contained within [areas](/documentation/components/what-is-component/#what-is-an-area).
 
-That's it!
+## Install
 
-### First steps
+<!-- TODO: install via WordPress instructions -->
 
-The simplest way of using Flynt Core can be demonstrated with the following *Hello, world* example:
+To install via composer, run:
 
-In your theme's `index.php` add:
+```bash
+composer require flyntwp/flynt-core
+```
+
+Activate the plugin in the WordPress back-end and you're good to go.
+
+## Usage
+
+### Hello World
+To see the simplest way of using Flynt Core, add the following code to your theme's `functions.php`:
+
+```php
+$componentManager = Flynt\ComponentManager::getInstance();
+$componentManager->registerComponent('HelloWorld');
+
+add_filter('Flynt/renderComponent?name=HelloWorld', function () {
+  return 'Hello, world!';
+});
+```
+This defines a new component ('HelloWorld'), which when rendered, will output the text 'Hello, world!'.
+
+To render the component, add the following code to your theme's `index.php`:
 
 ```php
 Flynt\echoHtmlFromConfig([
@@ -32,47 +53,39 @@ Flynt\echoHtmlFromConfig([
 ]);
 ```
 
-...and to your theme's `functions.php`:
+### Initialize Default Settings
 
-```php
-add_filter('Flynt\renderComponent?name=HelloWorld', function () {
-  return 'Hello, world!';
-});
-```
-
-That's it! You have successfully used Flynt Core for the first time.
-
-### Next steps
-
-We can take this a step further by initializing the plugins defaults. This will:
-- Implement the intended component structure.
-- Load additional component scripts.
-- Enable PHP file rendering.
-
-To do so, add the following line of code to your theme's `functions.php`:
+We recommend initializing the plugin's default settings. Do this by adding the following line of code to your theme's `functions.php`:
 
 ```php
 Flynt\initDefaults();
 ```
 
-This will add the following hooks:
+This will:
+
+- Implement the component structure.
+- Load component scripts.
+- Enable PHP file rendering.
+
+This also adds the following hooks:
 
 ```php
+// Set the config path to './config'.
 add_filter('Flynt/configPath', ['Flynt\Defaults', 'setConfigPath'], 999, 2);
+
+// Parse `.json` config files.
 add_filter('Flynt/configFileLoader', ['Flynt\Defaults', 'loadConfigFile'], 999, 3);
+
+// Set the component path to `./Components`.
 add_filter('Flynt/componentPath', ['Flynt\Defaults', 'setComponentPath'], 999, 2);
-add_action('Flynt/registerComponent', ['Flynt\Defaults', 'checkComponentFolder']);
+
+// Load ./Components/{$componentName}/functions.php from every registered component.
 add_action('Flynt/registerComponent', ['Flynt\Defaults', 'loadFunctionsFile']);
+
+// Render `./Components/{$componentName}/index.php` and make view helper functions `$data` and `$area` available (see explanation below).
 add_filter('Flynt/renderComponent', ['Flynt\Defaults', 'renderComponent'], 999, 4);
 ```
 
-In summary, these hooks do the following:
-
-- Load config files from the `./config` directory.
-- Parse `.json` config files.
-- Set the component path to `./Components`.
-- Require components to be registered.
-- Load `./Components/{$componentName}/function.php` from every registered component, if the file exists.
-- Render `./Components/{$componentName}/index.php` and make view helper function `$data` and `$area` available.
-  - `$data` is used to access the component's data in the view template.
-  - `$area` is used to include the HTML of an area's components into the components template itself.
+With the 'Flynt/renderComponent' filter added above you can now use the following helper functions in your template files:
+- `$data` is used to access the component's data in the view template.
+- `$area` is used to include the HTML of an area's components into the components template itself.
