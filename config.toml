@@ -64,7 +64,7 @@ googleAnalytics = ""
 
 [[menu.main]]
   name   = "Resources"
-  url    = "/resources/faq/"
+  url    = "/resources/contributing/"
   weight = 40
 
 # Side Menu Items, Parent should match the identifier of the Top Menu Item
