@@ -4,7 +4,7 @@ const runSequence = require('run-sequence')
 gulp.task('default', function (cb) {
   runSequence(
     'clean',
-    ['copy', 'sass', 'uglify', 'setBase:development', 'buildSearchIndex'],
+    ['copy', 'rousseau', 'sass', 'uglify', 'setBase:development', 'buildSearchIndex'],
     'hugo',
     'watch',
     cb

@@ -14,7 +14,7 @@ menu:
 <!-- TODO: Remove most of these questions (remove negative 'do i have to' language) and add a prompt for readers to go ask us questions (We don't know what the genuine frequently asked questions are yet)  -->
 
 ## What's Timber?
-Timber combines the simple readability of the [Twig template engine](http://twig.sensiolabs.org/), and combines it with an object oriented, consistent approach to Wordpress posts, images, terms, users and more.
+Timber combines the simple readability of the [Twig template engine](http://twig.sensiolabs.org/), and combines it with an object oriented, consistent approach to WordPress posts, images, terms, users and more.
 
 To find out more about Timber's functionality, we strongly recommend reading through the [official Timber documentation](https://www.upstatement.com/timber/).
 
@@ -28,7 +28,7 @@ No, this is just our personal recommendation. You can use plain CSS without need
 
 ## What's Rupture?
 
-Rupture is a simple utility for working with media queries in stylus. It takes advantage of Stylus block mixins to provide a series of useful helpers that make using breakpoints clean and intuitive. [You can read more on their official website](http://jescalan.github.io/rupture/).
+Rupture is a simple utility for working with media queries in stylus. It takes advantage of Stylus block mixin's to provide a series of useful helpers that make using breakpoints clean and intuitive. [You can read more on their official website](http://jescalan.github.io/rupture/).
 
 Of course, as with everything else - you do not have to use this, but we strongly recommend it!
 

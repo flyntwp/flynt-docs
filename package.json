@@ -2,7 +2,10 @@
   "name": "flynt-documentation",
   "version": "0.1.0",
   "description": "Source for the [Flynt Framework documentation](https://docs.flyntwp.com).",
-  "dependencies": {},
+  "dependencies": {
+    "markdown-spellcheck": "^0.11.0",
+    "rousseau": "^1.0.5"
+  },
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "del": "^2.2.2",
@@ -27,6 +30,7 @@
     "streamqueue": "^1.1.1"
   },
   "scripts": {
+    "spellcheck": "mdspell -r --en-us ./content/**/*.md",
     "buildIndex": "hugo-lunr -o static/lunr.json",
     "build": "gulp build",
     "start": "gulp"

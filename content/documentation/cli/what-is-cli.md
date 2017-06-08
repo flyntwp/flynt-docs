@@ -11,7 +11,7 @@ menu:
     weight: 80
 ---
 
-Flynt CLI makes working with Flynt simple and quick. It contains commands that cover setting up Wordpress, installing the theme, synchronizing databases, and handling deployment.
+Flynt CLI makes working with Flynt simple and quick. It contains commands that cover setting up WordPress, installing the theme, synchronizing databases, and handling deployment.
 
 ## Install
 
@@ -29,7 +29,7 @@ flynt --help
 ```
 
 ## Setup
-Setup a new flynt project.
+Setup a new Flynt project.
 
 ```
 flynt setup
@@ -42,7 +42,7 @@ Run `flynt setup --help` to see all of the available commands:
 - `setupTheme` -  Clones the Flynt theme and runs Yarn to install theme dependencies.
 - `initGitRepo` - Initializes new git repo.
 - `createDb` - Creates a new database and user on localhost.
-- `setupWordpress` - Runs through Wordpress core setup, creates Wordpress salts.
+- `setupWordpress` - Runs through WordPress core setup, creates WordPress salts.
 - `activateWordpress` - Activates the Flynt theme.
 
 ## Clone
