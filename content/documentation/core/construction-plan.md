@@ -7,11 +7,11 @@ menu:
     weight: 71
 ---
 
-The "Construction Plan" is a heirarchical plan for how the site will be constructed, which is created and then rendered by the Flynt Core plugin.
+The "Construction Plan" is a hierarchical plan for how the site will be constructed, which is created and then rendered by the Flynt Core plugin.
 
-## Configuration File
+## Configuration
 
-The starting point for the entire process is a configuration representing a component. Multiple components can then be nested through the use of [areas](/documentation/components/what-is-component/#what-is-an-area).
+The starting point for creating the construction plan is a configuration representing a component. Multiple components can then be nested through the use of [areas](/documentation/components/what-is-component/#what-is-an-area).
 
 The available properties are as follows:
 
@@ -24,7 +24,7 @@ The available properties are as follows:
 
 ## Building the construction plan
 
-From this configuration file, Flynt Core will then build a Construction Plan by recursively following the below steps:
+From this configuration, Flynt Core will then build a Construction Plan by recursively following the below steps:
 
 1. **Initialize empty component data.**
    `$config['data']` is set to an empty array. This is the starting point for every creation. As such, you **cannot** pass `data` through the config directly. Use `customData` instead.
