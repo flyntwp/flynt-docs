@@ -42,10 +42,10 @@ From this configuration, Flynt Core will then build a Construction Plan by recur
    This filter targets a specific component specified by the `componentName`. It can be used to do some default data manipulation that is needed for rendering the component. Since no data logic should be added to a template (except simple loops or control statements) every preparation, formatting, etc. should be done here. This filter will usually be added in a components *functions.php*.
 
 6. **Apply component specific filter `Flynt/dynamicSubcomponents?name={$componentName}`.**
-   This can be used to add sub components (components in an area) to a component. It is useful for adding a sub component based on data that comes from a data filter.
+   This can be used to add sub components (components in an area) to a component.
 
-7. **Do the same for subcomponent specified in - and dynamically added to - *areas*.**
-   The final step for one component is doing the same construction logic for each of the component's area's sub components.
+7. **Do the same for sub components specified in - and dynamically added to - *areas*.**
+   The final step for one component is doing the same construction logic for each sub component.
 
 ## Rendering the construction plan
 
