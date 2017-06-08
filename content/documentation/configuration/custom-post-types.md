@@ -1,10 +1,10 @@
 ---
 title: Custom Post Types
-weight: 51
+weight: 52
 menu:
   main:
     parent: configuration
-    weight: 51
+    weight: 52
 ---
 
 With Flynt, custom post types can be created using the [Custom Post Type feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/CustomPostTypes).
