@@ -25,7 +25,7 @@ namespace Flynt\Components\ExampleComponentName;
 ```
 
 ## Enqueueing Assets and Dependencies
-The main `style.css` and `script.js` files of a component can be enqueued using the [Flynt Component feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/Components) within the `wp_enqueue_scripts` action.
+The main `style.css` and `script.js` files of a component can be enqueued using the [Flynt Components feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/Components) within the `wp_enqueue_scripts` action.
 
 ```php
 <?php
@@ -131,7 +131,7 @@ add_filter('Flynt/dynamicSubcomponents?name=ParentComponent', function ($areas)
         ]
     ];
     return $areas;
-}, 10);
+});
 ```
 
 It is also possible to access the `$data` and `$parentData` of the component that the filter is applied to. This is useful if, for example, you need to dynamically load components of an ACF flexible content field group:
@@ -140,14 +140,13 @@ It is also possible to access the `$data` and `$parentData` of the component tha
 <?php
 add_filter('Flynt/dynamicSubcomponents?name=FlexibleContent', function ($areas, $data, $parentData) {
     $fieldGroup = $data['fieldGroup'];
-    if (array_key_exists($fieldGroup, $parentData['post']->fields) &&
-    $parentData['post']->fields[$fieldGroup] !== false
+    if (array_key_exists($fieldGroup, $parentData['post']->fields) && $parentData['post']->fields[$fieldGroup] !== false
     ) {
         $areas['flexibleContent'] = array_map(function ($field) use ($parentData) {
             return [
-            'name' => ucfirst($field['acf_fc_layout']),
-            'customData' => $field,
-            'parentData' => $parentData // overwrite parent data of child components
+                'name' => ucfirst($field['acf_fc_layout']),
+                'customData' => $field,
+                'parentData' => $parentData // overwrite parent data of child components
             ];
         }, $parentData['post']->fields[$data['fieldGroup']]);
     }

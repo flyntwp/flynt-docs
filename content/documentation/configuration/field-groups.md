@@ -59,11 +59,11 @@ These fields will then be visible on all pages inside the WordPress back end:
 
 ## Using Components as Flexible Content Layouts
 
-The [ACF Flexible Content field](https://www.advancedcustomfields.com/resources/flexible-content/) acts as a blank canvas to which the user can combine an unlimited number of layouts with full control over the order.
+The [ACF Flexible Content field](https://www.advancedcustomfields.com/resources/flexible-content/) acts as a blank canvas to which the user can add an unlimited number of layouts with full control over the order.
 
 With Flynt, we can define a field group with a flexible content field that contains components as the available layouts. Flynt has two such field groups by default, one for posts ([postComponents.json](https://github.com/flyntwp/flynt-starter-theme/blob/master/config/fieldGroups/postComponents.json)) and one for pages ([pageComponents.json](https://github.com/flyntwp/flynt-starter-theme/blob/master/config/fieldGroups/pageComponents.json)).
 
-To do this, we create a field group that contains a `flexible_content` field, then pass the `Layout` of each component into the `layouts` array:
+To use components as flexible content layouts, we create a field group that contains a `flexible_content` field, then pass the `Layout` of each component into the `layouts` array:
 
 ```json
 {

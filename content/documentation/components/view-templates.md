@@ -9,7 +9,7 @@ menu:
 
 The "View Template" can be seen as the "V" in any MVC ("Model-View-Controller") framework. In Flynt, view templates are written in the templating engine [Twig](http://twig.sensiolabs.org/), and support everything provided additionally by the WordPress plugin [Timber](http://timber.github.io/timber/).
 
-By default, the template file for a component must be named `index.twig`, and must reside inside the parent directory of a component. Flynt will take this template and output it into HTML in the corresponding location in the `dist` folder.
+By default, the template file for a component must be named `index.twig`, and must reside inside the component's own directory. Flynt will take this template and output it into HTML in the corresponding location in the `dist` folder.
 
 ```
 ├── flynt-starter-theme

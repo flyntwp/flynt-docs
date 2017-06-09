@@ -17,7 +17,7 @@ The ability to add content fields is provided primarily by the WordPress plugin 
 |  |  |  └── index.twig
 ```
 
-Inside `fields.json`, the fields must be registered inside an array with a valid key. For example, here is a single text field registered inside a `contentFields` array:
+Inside `fields.json`, the fields must be registered inside an array with a unique key. For example, here is a single text field registered inside a `contentFields` array:
 
 ```json
 {

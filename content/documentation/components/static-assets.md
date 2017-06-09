@@ -55,7 +55,7 @@ In the `index.twig` view template, the `downloadIcon` variable can then be used:
 
 ```twig
 <div is="flynt-example-component" class="flyntComponent">
-  <img src="{{ downloadIconSrc }}" alt=""/>
+  <img src="{{ downloadIconSrc }}" alt="">
 </div>
 ```
 

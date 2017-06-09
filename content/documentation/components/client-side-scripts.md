@@ -25,7 +25,7 @@ import `file-loader?name=vendor/${fileName.js}!${fileNameInNodeModules.js}'`
 
 The Webpack file loader will automatically find all files installed via [npm](https://www.npmjs.org) or [Yarn](https://yarnpkg.com/). For example:
 
-In the terminal, use Yarn to add [slick-carousel](https://www.npmjs.com/package/slick-carousel):
+In the terminal, navigate to the flynt theme directory and use Yarn to add [slick-carousel](https://www.npmjs.com/package/slick-carousel):
 
 ```
 yarn add slick-carousel
