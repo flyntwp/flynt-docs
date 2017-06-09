@@ -46,8 +46,8 @@ use Flynt\Utils\Asset;
 
 add_filter('Flynt/addComponentData?name=ExampleComponent', function ($data)
 {
-  $data['downloadIconSrc'] = Asset::requireUrl('Components/ExampleComponent/assets/downloadIcon.svg');
-  return $data;
+    $data['downloadIconSrc'] = Asset::requireUrl('Components/ExampleComponent/assets/downloadIcon.svg');
+    return $data;
 });
 ```
 

@@ -122,26 +122,26 @@ As an example, the below code demonstrates how to switch to [Smarty](http://www.
 ```php
 <?php
 add_filter('Flynt/renderComponent', function($output, $componentName, $componentData, $areaHtml) {
-  // Get index file.
-  $componentManager = Flynt\ComponentManager::getInstance();
-  $filePath = $componentManager->getComponentFilePath($componentName, 'index.tpl');
+    // Get index file.
+    $componentManager = Flynt\ComponentManager::getInstance();
+    $filePath = $componentManager->getComponentFilePath($componentName, 'index.tpl');
 
-  // Add areas to data.
-  $data = array_merge($componentData, ['areas' => $areaHtml]);
+    // Add areas to data.
+    $data = array_merge($componentData, ['areas' => $areaHtml]);
 
-  // Assign data.
-  $smarty = new Smarty;
-  $smarty->assign($data);
+    // Assign data.
+    $smarty = new Smarty;
+    $smarty->assign($data);
 
-  // Return html rendered by Smarty.
-  return $smarty->display($filePath);
+    // Return html rendered by Smarty.
+    return $smarty->display($filePath);
 }, 10, 4);
 ```
 
 Your component data will now be available as usual in `index.tpl`:
 
 ```
-<div is="flynt-example-module">
+<div is="flynt-example-component">
   <h1>{$title}</h1>
 </div>
 ```

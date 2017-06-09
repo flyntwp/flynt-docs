@@ -40,7 +40,7 @@ $componentManager = Flynt\ComponentManager::getInstance();
 $componentManager->registerComponent('HelloWorld');
 
 add_filter('Flynt/renderComponent?name=HelloWorld', function () {
-  return 'Hello, world!';
+    return 'Hello, world!';
 });
 ```
 This defines a new component ('HelloWorld'), which when rendered, will output the text 'Hello, world!'.
@@ -49,7 +49,7 @@ To render the component, add the following code to your theme's `index.php`:
 
 ```php
 Flynt\echoHtmlFromConfig([
-  'name' => 'HelloWorld'
+    'name' => 'HelloWorld'
 ]);
 ```
 

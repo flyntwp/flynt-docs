@@ -42,8 +42,8 @@ namespace Flynt\Components\BlockQuote;
 
 add_filter('Flynt/addComponentData?name=BlockQuote', function ($data)
 {
-  $data['quote'] = 'Hello World!';
-  return $data;
+    $data['quote'] = 'Hello World!';
+    return $data;
 });
 ```
 

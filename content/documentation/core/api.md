@@ -131,15 +131,19 @@ Default:
 ```php
 add_filter('Flynt/componentPath', ['Flynt\Defaults', 'setComponentPath'], 999, 2);
 ```
+
 ```php
 namespace Flynt;
-class Defaults {
-  public static function setComponentPath($componentPath, $componentName) {
-    if (is_null($componentPath)) {
-      $componentPath = self::getComponentsDirectory() . '/' . $componentName;
+
+class Defaults
+{
+    public static function setComponentPath($componentPath, $componentName)
+    {
+        if (is_null($componentPath)) {
+            $componentPath = self::getComponentsDirectory() . '/' . $componentName;
+        }
+        return $componentPath;
     }
-    return $componentPath;
-  }
 }
 ```
 ### Flynt/configPath
@@ -160,13 +164,16 @@ add_filter('Flynt/configPath', ['Flynt\Defaults', 'setConfigPath'], 999, 2);
 ```
 ```php
 namespace Flynt;
-class Defaults {
-  public static function setConfigPath($configPath, $configFileName) {
-    if (is_null($configPath)) {
-      $configPath = get_template_directory() . '/' . self::CONFIG_DIR . '/' . $configFileName;
+
+class Defaults
+{
+    public static function setConfigPath($configPath, $configFileName)
+    {
+        if (is_null($configPath)) {
+            $configPath = get_template_directory() . '/' . self::CONFIG_DIR . '/' . $configFileName;
+        }
+        return $configPath;
     }
-    return $configPath;
-  }
 }
 ```
 ### Flynt/configFileLoader
@@ -188,15 +195,19 @@ Default:
 ```php
 add_filter('Flynt/configFileLoader', ['Flynt\Defaults', 'loadConfigFile'], 999, 3);
 ```
+
 ```php
 namespace Flynt;
-class Defaults {
-  public static function loadConfigFile($config, $configName, $configPath) {
-    if (is_null($config)) {
-      $config = json_decode(file_get_contents($configPath), true);
+
+class Defaults
+{
+    public static function loadConfigFile($config, $configName, $configPath)
+    {
+        if (is_null($config)) {
+            $config = json_decode(file_get_contents($configPath), true);
+        }
+        return $config;
     }
-    return $config;
-  }
 }
 ```
 ### Flynt/initComponentConfig
@@ -221,12 +232,13 @@ Arguments for callable:
 </dl>
 
 Example:
+
 ```php
 add_filter('Flynt/addComponentData?name=PageHeader', function ($data, $parentData) {
-  if (!empty($parentData['post_thumbnail']) && array_key_exists('url', $parentData['post_thumbnail'])) {
-    $data['image'] = $parentData['post_thumbnail']['url'];
-  }
-  return $data;
+    if (!empty($parentData['post_thumbnail']) && array_key_exists('url', $parentData['post_thumbnail'])) {
+      $data['image'] = $parentData['post_thumbnail']['url'];
+    }
+    return $data;
 }, 10, 2);
 ```
 ### Flynt/dynamicSubcomponents?name={$config['name']}
@@ -248,17 +260,17 @@ Example:
 
 ```php
 add_filter('Flynt/dynamicSubcomponents?name=FlexibleContent', function ($areas, $data, $parentData) {
-  $fieldGroup = $data['fieldGroup'];
-  if (array_key_exists($fieldGroup, $parentData) && $parentData[$fieldGroup] !== false) {
-    $areas['flexibleContent'] = array_map(function ($field) use ($parentData) {
-      return [
-        'name' => ucfirst($field['acf_fc_layout']),
-        'customData' => $field,
-        'parentData' => $parentData // overwrite parent data of child components
-      ];
-    }, $parentData[$data['fieldGroup']]);
-  }
-  return $areas;
+    $fieldGroup = $data['fieldGroup'];
+    if (array_key_exists($fieldGroup, $parentData) && $parentData[$fieldGroup] !== false) {
+        $areas['flexibleContent'] = array_map(function ($field) use ($parentData) {
+            return [
+                'name' => ucfirst($field['acf_fc_layout']),
+                'customData' => $field,
+                'parentData' => $parentData // overwrite parent data of child components
+            ];
+        }, $parentData[$data['fieldGroup']]);
+    }
+    return $areas;
 }, 10, 3);
 ```
 
@@ -286,17 +298,21 @@ Default:
 ```php
 add_filter('Flynt/renderComponent', ['Flynt\Defaults', 'renderComponent'], 999, 4);
 ```
+
 ```php
 namespace Flynt;
-class Defaults {
-  public static function renderComponent($output, $componentName, $componentData, $areaHtml) {
-    if (is_null($output)) {
-      $componentManager = ComponentManager::getInstance();
-      $filePath = $componentManager->getComponentFilePath($componentName);
-      $output = self::renderFile($componentData, $areaHtml, $filePath);
+
+class Defaults
+{
+    public static function renderComponent($output, $componentName, $componentData, $areaHtml)
+    {
+        if (is_null($output)) {
+            $componentManager = ComponentManager::getInstance();
+            $filePath = $componentManager->getComponentFilePath($componentName);
+            $output = self::renderFile($componentData, $areaHtml, $filePath);
+        }
+        return $output;
     }
-    return $output;
-  }
 }
 ```
 
@@ -321,19 +337,24 @@ Defaults:
 add_action('Flynt/registerComponent', ['Flynt\Defaults', 'checkComponentFolder']);
 add_action('Flynt/registerComponent', ['Flynt\Defaults', 'loadFunctionsFile']);
 ```
+
 ```php
 namespace Flynt;
-class Defaults {
-  public static function checkComponentFolder($componentPath) {
-    if (!is_dir($componentPath)) {
-      trigger_error("Register Component: Folder {$componentPath} not found!", E_USER_WARNING);
+
+class Defaults
+{
+    public static function checkComponentFolder($componentPath)
+    {
+        if (!is_dir($componentPath)) {
+            trigger_error("Register Component: Folder {$componentPath} not found!", E_USER_WARNING);
+        }
     }
-  }
-  public static function loadFunctionsFile($componentPath) {
-    $filePath = $componentPath . '/functions.php';
-    if (file_exists($filePath)) {
-      require_once $filePath;
+    public static function loadFunctionsFile($componentPath)
+    {
+        $filePath = $componentPath . '/functions.php';
+        if (file_exists($filePath)) {
+          require_once $filePath;
+        }
     }
-  }
 }
 ```

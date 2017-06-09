@@ -13,6 +13,7 @@ This is the only file a feature requires. The only additional requirement is to 
 
 ```php
 <?php
+
 namespace Flynt\Features\ExampleFeature;
 
 // Add feature functionality here!

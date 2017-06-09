@@ -179,7 +179,7 @@ use Flynt\Utils\Log;
 
 add_filter('Flynt/addComponentData?name=ExampleComponentName', function ($data)
 {
-  Log::console($data); // console.log $data to the console.
-  return $data;
+    Log::console($data); // console.log $data to the console.
+    return $data;
 });
 ```
