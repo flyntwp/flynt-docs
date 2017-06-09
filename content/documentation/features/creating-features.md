@@ -44,6 +44,4 @@ Sometimes, a feature may need to add ACF fields to allow the user to configure t
 }
 ```
 
-<!-- TODO: Add link to snippets. -->
-
-<a href="#add-link" class="button button--primary">You can read more on authoring ACF Fields here.</a>
+[You can read more on authoring ACF Fields here.](/documentation/components/content-fields)

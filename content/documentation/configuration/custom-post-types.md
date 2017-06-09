@@ -1,10 +1,10 @@
 ---
 title: Custom Post Types
-weight: 51
+weight: 52
 menu:
   main:
     parent: configuration
-    weight: 51
+    weight: 52
 ---
 
 With Flynt, custom post types can be created using the [Custom Post Type feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/CustomPostTypes).
@@ -36,7 +36,7 @@ Here we pass two options:
 ## 2. Create a post type
 Each custom post type requires a separate folder in the defined `dir`. Within this folder, it will look for a JSON file with the specified `fileName` (`config.json`).
 
-As an example, create `config\customPostTypes\products\config.json`. Within `config.json`, add the [configuration options exactly as specified by WordPress](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters):
+As an example, create `config/customPostTypes/products/config.json`. Within `config.json`, add the [configuration options exactly as specified by WordPress](https://codex.wordpress.org/Function_Reference/register_post_type#Parameters):
 
 ```json
 {

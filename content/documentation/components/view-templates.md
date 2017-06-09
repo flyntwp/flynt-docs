@@ -7,41 +7,65 @@ menu:
     weight: 31
 ---
 
-- TODO: add definition for view template that doesn't suck
-- flynt takes the view -> compiles to html and outputs
-- this is the V in MVC.
-- maybe put the index.twig example at the top of here, not at the bottom
+The "View Template" can be seen as the "V" in any MVC ("Model-View-Controller") framework. In Flynt, view templates are written in the templating engine [Twig](http://twig.sensiolabs.org/), and support everything provided additionally by the WordPress plugin [Timber](http://timber.github.io/timber/).
 
-The rendered view of a component is the "view template". View templates are written in [Twig](http://twig.sensiolabs.org/), and support everything provided additionally by [Timber](http://timber.github.io/timber/).
+By default, the template file for a component must be named `index.twig`, and must reside inside the component's own directory. Flynt will take this template and output it into HTML in the corresponding location in the `dist` folder.
 
-The template file for a component must be named `index.twig`.
+```
+├── flynt-starter-theme
+|  ├──Components
+|  |  ├──ExampleComponent/
+|  |  |  └── index.twig
+```
 
-All data passed to a component is readily available in the view. This data includes fields configured in the [`fields.json` file](fields/README.md) of the component, plus data passed with the [`addComponentData` filter](functions.md#flynt-addcomponentdata).
+To rename the view template file, take a look at the [TimberLoader feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/TimberLoader/functions.php).
 
-For example, take a component named `exampleComponent`.
+All data passed to a component is readily available in the view. This data includes fields configured in the [`content fields`](/documentation/components/content-fields/) file of a component, plus data passed with the [`addComponentData` filter](/documentation/components/server-side-logic/#flynt-addcomponentdata).
 
-In `functions.php`:
+For example, a 'BlockQuote' component could have the following `index.twig`:
+
+```twig
+<div is="flynt-block-quote" class="flyntComponent">
+  <blockquote>
+    <p>{{ quote }}</p>
+    <cite>{{ citation }}</cite>
+  </blockquote>
+</div>
+```
+
+In this example, the `quote` variable is defined in `functions.php` with the `addComponentData` filter:
 
 ```php
 <?php
 
-namespace Flynt\Components\ExampleComponent;
+namespace Flynt\Components\BlockQuote;
 
-add_filter('Flynt/addComponentData?name=ExampleComponent', function ($data)
+add_filter('Flynt/addComponentData?name=BlockQuote', function ($data)
 {
-  $data['helloWorld'] = 'Hello World!';
+  $data['quote'] = 'Hello World!';
   return $data;
 });
 ```
 
-This data is now available in `index.twig`:
+Whereas the `citation` variable is defined in `fields.json` as a user-editable content field:
 
-```twig
-<div is='flynt-example-component' class='flyntComponent'>
-  <h1>{{ helloWorld }}</h1>
-</div>
+```json
+{
+  "layout": {
+    "name": "blockQuote",
+    "label": "Block Quote",
+    "sub_fields": [
+      {
+        "label": "Citation",
+        "name": "citation",
+        "type": "text",
+        "required": 1
+      }
+    ]
+  }
+}
 ```
 
-If Twig is not your preferred template language, it is possible to customize this with Flynt Core. [You can read how to change the template language here.](../core/customization/changing-template-language.md)
+If Twig is not your preferred template language, it is possible to customize this with Flynt Core. [You can read how to change the template language here](/documentation/core/customization/#changing-template-language).
 
 <!-- - TODO: Talk about partials -->
