@@ -17,15 +17,15 @@ Download and place the feature into the `Features` folder and initialize it in t
 ```php
 <?php
 
-function initTheme() {
-  ...
-  add_theme_support('flynt-custom-post-types', [
-    'dir' => get_template_directory() . '/config/customPostTypes/',
-    'fileName' => 'config.json'
-  ]);
-  ...
+function initTheme()
+{
+    ...
+    add_theme_support('flynt-custom-post-types', [
+        'dir' => get_template_directory() . '/config/customPostTypes/',
+        'fileName' => 'config.json'
+    ]);
+    ...
 }
-
 ```
 
 Here we pass two options:

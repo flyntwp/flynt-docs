@@ -14,10 +14,11 @@ By default, the configuration files must be placed into the `config/customTaxono
 ```php
 <?php
 
-function initTheme() {
-  add_theme_support('flynt-custom-taxonomies', [
-    'dir' => get_template_directory() . '/config/yourTaxonomyFolderOfChoice/'
-  ]);
+function initTheme()
+{
+    add_theme_support('flynt-custom-taxonomies', [
+        'dir' => get_template_directory() . '/config/yourTaxonomyFolderOfChoice/'
+    ]);
 }
 ```
 
