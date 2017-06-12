@@ -17,7 +17,7 @@ Unfortunately, by changing from Stylus, you will lose the media query helper **[
 ### Switching to Sass
 As an example, this section will demonstrate how to use Sass, instead of Stylus.
 
-1\. Install [gulp-sass](https://www.npmjs.com/package/gulp-sass) with yarn:
+1\. Install [gulp-sass](https://www.npmjs.com/package/gulp-sass) with [Yarn](https://yarnpkg.com/en/):
 
 ```bash
 yarn add gulp-sass
