@@ -13,7 +13,7 @@
       {{ range .Children }}
       <li class="side-menu__item{{if $currentNode.HasMenuCurrent "main" . }} active{{end}}{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">
         <a href="{{.URL}}" class="side-menu__item__link">
-          <img class="side-menu__item__link__icon" src="/images/flynt-logo.svg" alt="">
+          <i class="side-menu__icon fa fa-chevron-right" aria-hidden="true"></i>
           <p class="side-menu__item__link__text">{{ .Name }}</p>
         </a>
 

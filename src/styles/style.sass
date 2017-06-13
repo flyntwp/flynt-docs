@@ -371,6 +371,10 @@ body
   @media all and (min-width: 1025px)
     display: block
 
+  &__icon
+    color: #969696
+    font-size: 12px
+
   &__item
     &:not(:first-child)
       .side-menu__item__link
@@ -381,6 +385,12 @@ body
         border-bottom: none !important
 
     &.active
+      .side-menu__icon
+        bottom: 1px
+        color: $color-primary
+        position: relative
+        transform: rotate(90deg)
+
       > a
         p
           color: $color-primary
@@ -413,7 +423,7 @@ body
       &__text
         display: none
         color: $color-big-stone
-        padding: 7px 0 7px 60px
+        padding: 7px 0 7px 28px
         font-weight: 300
         letter-spacing: 0.05em
         font-size: 15px
