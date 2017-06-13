@@ -17,79 +17,79 @@ Unfortunately, by changing from Stylus, you will lose the media query helper **[
 ### Switching to Sass
 As an example, this section will demonstrate how to use Sass, instead of Stylus.
 
-1\. Install `gulp-sass` with yarn:
+1\. Install [gulp-sass](https://www.npmjs.com/package/gulp-sass) with [Yarn](https://yarnpkg.com/en/):
 
-  ```
-  yarn add gulp-sass -D
-  ```
+```bash
+yarn add gulp-sass
+```
 
-2\. Create `gulpfile.js/tasks/sass.js` and add the following code:  
+2\. Create `gulpfile.js/tasks/sass.js` and add the following code:
 
-  ```javascript
-  const browserSync = require('browser-sync')
-  const changed = require('gulp-changed')
-  const gulp = require('gulp')
-  const path = require('path')
-  const sourcemaps = require('gulp-sourcemaps')
-  const sass = require('gulp-sass')
-  const gulpIf = require('gulp-if')
+```js
+const autoprefixer = require('autoprefixer-stylus')
+const browserSync = require('browser-sync')
+const changed = require('gulp-changed')
+const gulp = require('gulp')
+const gulpIf = require('gulp-if')
+const handleErrors = require('../utils/handleErrors')
+const path = require('path')
+const rupture = require('rupture')
+const sourcemaps = require('gulp-sourcemaps')
+const sass = require('gulp-sass')
 
-  module.exports = function (config) {
-    const isProduction = process.env.NODE_ENV === 'production'
-    gulp.task('sass', function () {
-      return gulp.src(config.sass)
-      .pipe(changed(config.dest))
-      .pipe(gulpIf(!isProduction, sourcemaps.init()))
-      .pipe(sass({
-        compress: isProduction,
-        import: [
-          path.resolve(__dirname, '../../Modules/_variables.sass'),
-          path.resolve(__dirname, '../../node_modules/jeet/scss/index.scss')
-        ]
-      }))
-      .pipe(gulpIf(!isProduction, sourcemaps.write(config.sourcemaps)))
-      .pipe(gulp.dest(config.dest))
-      .pipe(browserSync.stream())
-    })
-  }
-  ```
+module.exports = function (config) {
+  const isProduction = process.env.NODE_ENV === 'production'
+  gulp.task('sass', function () {
+    return gulp.src(config.sass)
+    .pipe(changed(config.dest))
+    .pipe(gulpIf(!isProduction, sourcemaps.init()))
+    .pipe(sass({
+      compress: isProduction,
+      use: [
+        rupture(),
+        autoprefixer()
+      ],
+      import: [
+        path.resolve(__dirname, '../../Components/_variables.sass'),
+        path.resolve(__dirname, '../../node_modules/jeet/scss/index.scss')
+      ]
+    }))
+    .on('error', handleErrors)
+    .pipe(gulpIf(!isProduction, sourcemaps.write(config.sourcemaps)))
+    .pipe(gulp.dest(config.dest))
+    .on('error', handleErrors)
+    .pipe(browserSync.stream())
+  })
+}
+```
 
 3\. In `gulpfile.js/config.js`, add a `sass` configuration to `module.exports`:
-  ```js
-  module.exports = {
-    sass: [
-      './{Modules,assets}/**/style.scss',
-      './{Modules,assets}/**/style.sass'
-    ],
-    //...
-  }
-  ```
+
+```js
+module.exports = {
+  sass: [
+    './{Components,Features}/**/*.sass',
+    '!./{Components,Features}/**/_*.sass',
+    './{Components,Features}/**/*.scss',
+    '!./{Components,Features}/**/_*.scss'
+  ],
+  //...
+}
+```
 
 4\. In `gulpfile.js/watch.js`, add these files to be watched for changes:
 
-  ```js
-  module.exports = function (config) {
-    gulp.task('watch:files', function () {
-      watch(config.sass, function () { gulp.start('sass') })
-      //...
-    })
+```js
+module.exports = function (config) {
+  gulp.task('watch:files', function () {
+    watchAndDelete(config.watch.sass, function () { gulp.start('sass') }, config.dest)
     //...
-  }
-  ```
+  })
+  //...
+}
+```
 
-5\. In `gulpfile.js/webpack.config.js`, add the following configuration for sass within the output object:
-
-  ```js
-  const output = {
-    //...
-    sass: {
-      import: ['~jeet/scss/index.scss']
-    },
-    plugins: //...
-  }
-  ```
-
-  That's it! This will provide basic Sass support, along with [Jeet Sass](http://jeet.gs/). As a next step, we would strongly recommend adding linting for Sass files, but this is not covered in this section.
+That's it! This will provide basic Sass support, along with [Jeet Sass](http://jeet.gs/).
 
 ## Changing Template Language
 
@@ -98,12 +98,15 @@ Whilst the theme uses [Twig](twig.sensiolabs.org) as the default template langua
 ### PHP Templates
 To use plain PHP, simply create `index.php`, rather than `index.twig`.
 
-The data passed to a component is still available using the `$data` function. For example:
+The data passed to a component is still available using the `$data` function, and areas can be output using the `$area` helper function. For example:
 
 #### Twig:
 ```twig
 <div is="flynt-example-module">
   <h1>{{ title }}</h1>
+  <div class="pageComponents">
+    {{ area('pageComponents') }}
+  </div>
 </div>
 ```
 
@@ -111,37 +114,73 @@ The data passed to a component is still available using the `$data` function. Fo
 ```php
 <div is="flynt-example-module">
   <h1><?= $data('title') ?></h1>
+  <div class="pageComponents">
+    <?= $area('pageComponents') ?>
+  </div>
 </div>
 ```
 
 ### Other Template Engines
-To switch to another template engine, use the `renderComponent` filter provided by the Flynt Core plugin.
+To switch to another template engine, use the [renderComponent](/documentation/core/api/#flynt-rendercomponent) filter provided by the Flynt Core plugin.
 
-As an example, the below code demonstrates how to switch to [Smarty](http://www.smarty.net/) for rendering your templates.
+For example, to switch to [Smarty](http://www.smarty.net/):
+
+1\. Install Smarty with composer:
+
+```bash
+composer require smarty/smarty
+```
+
+2\. [Create a feature](/documentation/features/creating-features) named `SmartyLoader`.
+
+3\. Use the `renderComponent` filter in `SmartyLoader/functions.php`:
 
 ```php
 <?php
-add_filter('Flynt/renderComponent', function($output, $componentName, $componentData, $areaHtml) {
-    // Get index file.
+
+namespace Flynt\Features\SmartyLoader;
+
+use Flynt;
+use Smarty;
+
+// Render Component with Smarty.
+add_filter('Flynt/renderComponent', function ($output, $componentName, $componentData, $areaHtml) {
+    // get index file
     $componentManager = Flynt\ComponentManager::getInstance();
     $filePath = $componentManager->getComponentFilePath($componentName, 'index.tpl');
+
+    // Return warning if template not found.
+    if (!is_file($filePath)) {
+        trigger_error("Template not found: {$filePath}", E_USER_WARNING);
+        return $output;
+    }
 
     // Add areas to data.
     $data = array_merge($componentData, ['areas' => $areaHtml]);
 
     // Assign data.
-    $smarty = new Smarty;
+    $smarty = new Smarty();
     $smarty->assign($data);
 
-    // Return html rendered by Smarty.
-    return $smarty->display($filePath);
+    // Return HTML rendered by Smarty.
+    return $smarty->fetch($filePath);
 }, 10, 4);
+
 ```
 
-Your component data will now be available as usual in `index.tpl`:
+4\. Add the feature in `Lib/init.php`:
+
+```php
+add_theme_support('flynt-smarty-loader');
+```
+
+5\. Done! Your component data will now be available as usual in `index.tpl`:
 
 ```
 <div is="flynt-example-component">
   <h1>{$title}</h1>
+  {$areas.exampleArea}
 </div>
 ```
+
+It is important to note that here we use the `$areas` variable as a simple example. To ensure that area data is not overwritten, create an `area` helper function. An example of this can be found in the [TimberLoader feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/TimberLoader/functions.php).
