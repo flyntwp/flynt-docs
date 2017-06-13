@@ -479,15 +479,16 @@ body
       font-weight: 500
 
 .content
-  padding: 30px 40px 40px 40px
+  padding: 30px 20px 100px
   background-color: white
   min-height: 100vh
   max-width: 980px
+  position: relative
 
   @media all and (min-width: 1025px)
     //display: block;
     margin-left: 370px
-    padding: 0 40px 40px 80px
+    padding: 0 40px 100px 80px
 
   .content-header
     font-size: 32px
@@ -934,7 +935,6 @@ body
       justify-content: space-between
 
     .part
-      width: 40%
       justify-content: initial
       text-align: initial
       margin: initial
@@ -1587,8 +1587,9 @@ pre + pre
   padding: 10px
   display: none
 
-  &.show
-    display: block
+  @media all and (max-width: 1024px)
+    &.show
+      display: block
 
   @media all and (min-width: 1025px)
     display: none
@@ -1630,12 +1631,16 @@ pre + pre
       transition: 0.15s all ease-in
 
 #mobile-header
-  display: flex
   align-items: center
+  background-color: #fff
+  border-bottom: 1px solid #DCDCDC
+  display: flex
+  height: 40px
   justify-content: space-between
   padding: 0 10px
-  height: 40px
-  border-bottom: 1px solid #DCDCDC
+  position: fixed
+  width: 100%
+  z-index: 10
 
   @media all and (min-width: 1025px)
     display: none
