@@ -98,12 +98,15 @@ Whilst the theme uses [Twig](twig.sensiolabs.org) as the default template langua
 ### PHP Templates
 To use plain PHP, simply create `index.php`, rather than `index.twig`.
 
-The data passed to a component is still available using the `$data` function. For example:
+The data passed to a component is still available using the `$data` function, and areas can be output using the `$area` helper function. For example:
 
 #### Twig:
 ```twig
 <div is="flynt-example-module">
   <h1>{{ title }}</h1>
+  <div class="pageComponents">
+    {{ area('pageComponents') }}
+  </div>
 </div>
 ```
 
@@ -111,6 +114,9 @@ The data passed to a component is still available using the `$data` function. Fo
 ```php
 <div is="flynt-example-module">
   <h1><?= $data('title') ?></h1>
+  <div class="pageComponents">
+    <?= $area('pageComponents') ?>
+  </div>
 </div>
 ```
 
