@@ -182,3 +182,5 @@ add_theme_support('flynt-smarty-loader');
   {$areas.exampleArea}
 </div>
 ```
+
+It is important to note that here we use the `$areas` variable as a simple example. To ensure that area data is not overwritten, create an `area` helper function. An example of this can be found in the [TimberLoader feature](https://github.com/flyntwp/flynt-starter-theme/blob/master/Features/TimberLoader/functions.php).
