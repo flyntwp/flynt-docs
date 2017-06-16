@@ -6,7 +6,7 @@ canonifyurls = true
 relativeURLs = true
 
 # Enable Google Analytics by entering your tracking id
-googleAnalytics = ""
+googleAnalytics = "UA-88576792-2"
 
 [params]
   # General information
