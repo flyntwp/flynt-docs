@@ -91,7 +91,7 @@ module.exports = function (config) {
 
 That's it! This will provide basic Sass support, along with [Jeet Sass](http://jeet.gs/).
 
-## Changing Template Language
+## Changing the Template Language
 
 Whilst the theme uses [Twig](https://twig.sensiolabs.org) as the default template language, this is not strictly enforced.
 
