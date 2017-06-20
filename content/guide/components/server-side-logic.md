@@ -9,10 +9,11 @@ menu:
 
 Flynt implements the [Wordpress functions.php concept](https://codex.wordpress.org/Functions_File_Explained) at component level. Each component can have a `functions.php` file. This file serves two main purposes:
 
-- Enqueue assets and dependencies.
-- Add additional data to the component before it is rendered.
+- Enqueue the assets and dependencies of a component.
+- Add custom logic (classes, hooks, filters) to a component.
+- Add additional data to a component.
 
-As with styles and scripts, keeping this logic separated at a component level ensures the component is quick to understand and simple to reuse.
+As with styles and scripts, keeping this logic separated at a component level ensures the component is quick to understand and easy to reuse.
 
 ## Namespace
 
@@ -73,10 +74,12 @@ add_action('wp_enqueue_scripts', function ()
 });
 ```
 
-This will look for `dist/vendor/slick.js` and `dist/vendor/slick.css` and enqueue the files if found. **Never add files manually to the `dist` folder.** To compile dependencies into the `dist/vendor` folder, see the [section on copying vendor files here](/guide/components/client-side-scripts/#add-third-party-dependencies).
+This will look for `flynt-starter-theme/dist/vendor/slick.js` and `flynt-starter-theme/dist/vendor/slick.css` and enqueue the files if found.
 
-## Using Filters
-The two main filters you will use inside `functions.php` are `Flynt/addComponentData` and `Flynt/dynamicSubcomponents`.
+**Never add files manually to the `dist` folder of the theme.** To compile dependencies into the `dist/vendor` folder of the theme, see the [section on copying vendor files here](/guide/components/client-side-scripts/#add-third-party-dependencies).
+
+## Add and Modify Component Data with Filters
+[Filters are provided by WordPress](https://codex.wordpress.org/Plugin_API) to allow a plugin to 'hook into' the rest of WordPress and call functions at specific times. [Flynt Core](/guide/core/) defines two filters most often used inside `functions.php` for the purpose of adding component data and [areas](/guide/components/what-is-component#what-is-an-area). These are [`Flynt/addComponentData`](/guide/core/api/#flynt-addcomponentdata) and [`Flynt/dynamicSubcomponents`](/guide/core/api/#flynt-dynamicsubcomponents-name-config-name).
 
 ### `Flynt/addComponentData`
 This filter can be used to add to or modify your component's data before it is passed to the view and rendered. This can be used, for example, to fetch and pass posts from a custom post type:
@@ -156,7 +159,7 @@ add_filter('Flynt/dynamicSubcomponents?name=FlexibleContent', function ($areas, 
 
 ## Using Features and Utils
 
-Flynt comes with a range of features and utility functions. To use any of them within a component, you must only `use` the feature or utility at the top of the `functions.php` file, below the component namespace.
+Flynt comes with a range of features and utility functions. To use any of them within a component, you must `use` the feature or utility at the top of the `functions.php` file, below the component namespace.
 
 Features are always namespaced with `Flynt\Features`.
 
@@ -167,6 +170,8 @@ namespace Flynt\Components\ExampleComponentName;
 
 use Flynt\Features\Components\Component;
 ```
+
+[Learn more about using features in the Features section](/guide/features/using-features/).
 
 Utils are always namespaced with `Flynt\Util`.
 
@@ -183,3 +188,5 @@ add_filter('Flynt/addComponentData?name=ExampleComponentName', function ($data)
     return $data;
 });
 ```
+
+[Learn more about using Utils in the Utils section](/guide/utils/using-utils/).
