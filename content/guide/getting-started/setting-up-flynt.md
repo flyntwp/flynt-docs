@@ -42,7 +42,7 @@ As soon as you have your environment set up, follow the steps below to create a 
 
 1. Using the command line, install the Flynt CLI:
   ```
-  yarn global add flyntwp/flynt-cli
+  yarn global add @flyntwp/flynt-cli
   ```
 
 2. Run the create command and follow the instructions:
