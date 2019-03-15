@@ -3,6 +3,8 @@
 
 > Source for the [Flynt Framework documentation](https://docs.flyntwp.com).
 
+**:warning: DEPRECATED. This repository is no longer in active development. For the latest version of Flynt please use the [new Flynt repository](https://github.com/flyntwp/flynt). :warning:**
+
 ## Table of Contents
 
 - [Install](#install)
